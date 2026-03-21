@@ -81,3 +81,4 @@ Before using this template for a real NGO, update the following:
 
 No additional UI framework is required for this template.
 # alternative12-npo-website
+# alternative12-npo-website
