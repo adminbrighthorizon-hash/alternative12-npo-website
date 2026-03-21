@@ -1,3 +1,6 @@
+const unsplashImage = (imageId: string, width: number) =>
+	`https://images.unsplash.com/${imageId}?auto=format&fit=crop&crop=faces&w=${width}&q=90`;
+
 export const site = {
 	name: 'Alternative 12',
 	tagline: 'Championing African children with disabilities and from underprivileged communities',
@@ -8,7 +11,7 @@ export const site = {
 		'We stand alongside children with disabilities, orphans, and underprivileged youth across Africa \u2014 delivering inclusive education, health access, and community-based support that no child should go without.',
 	banner:
 		'Reaching children with disabilities and underserved youth across 6 African nations \u2014 12 district partnerships, real results.',
-	heroImage: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=80',
+	heroImage: unsplashImage('photo-1632215861513-130b66fe97f4', 2200),
 	nav: [
 		{ href: '/', label: 'Home' },
 		{ href: '/about', label: 'About Us' },
@@ -24,7 +27,7 @@ export const site = {
 			description:
 				'Accessible classrooms, adapted learning materials, assistive devices, teacher training for special needs, and school fee support so every child \u2014 including those with disabilities \u2014 can learn and thrive.',
 			accent: 'accent-gold',
-			image: 'https://images.unsplash.com/photo-1613899484930-be2ea0ec44a5?auto=format&fit=crop&w=800&q=80',
+			image: unsplashImage('photo-1567057419565-4349c49d8a04', 1600),
 		},
 		{
 			id: '02',
@@ -32,7 +35,7 @@ export const site = {
 			description:
 				'Community health outreach, disability screening, physiotherapy, clinic referrals, and nutrition support that reach children in rural and peri-urban communities early.',
 			accent: 'accent-green',
-			image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
+			image: unsplashImage('photo-1741940365437-e55b919a89d3', 1600),
 		},
 		{
 			id: '03',
@@ -40,7 +43,7 @@ export const site = {
 			description:
 				'Assistive technology, mobility aids, therapy services, inclusive play spaces, and community awareness campaigns that break barriers and build belonging for children with disabilities.',
 			accent: 'accent-clay',
-			image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80',
+			image: unsplashImage('photo-1547496614-d145e2fa88ed', 1600),
 		},
 		{
 			id: '04',
@@ -48,7 +51,7 @@ export const site = {
 			description:
 				'Safe spaces, psychosocial support, anti-stigma advocacy, caregiver training, and local referral pathways for orphans, children with disabilities, and those facing neglect or crisis.',
 			accent: 'accent-teal',
-			image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=800&q=80',
+			image: unsplashImage('photo-1645043019869-6c6a2ec3d562', 1600),
 		},
 	],
 	stats: [
@@ -115,45 +118,45 @@ export const site = {
 	gallery: [
 		{
 			slot: 'Photo 01',
-			src: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80',
-			alt: 'Group of African children smiling together in a community setting',
+			src: unsplashImage('photo-1632215861513-130b66fe97f4', 1600),
+			alt: 'Nigerian schoolchildren gathered during a community education event in Port Harcourt',
 			title: 'Every child belongs',
-			description: 'Children of all abilities come together in inclusive community spaces to learn, play, and grow with confidence.',
+			description: 'Children in Port Harcourt gather for a community school event that reflects the African context this organization serves.',
 		},
 		{
 			slot: 'Photo 02',
-			src: 'https://images.unsplash.com/photo-1613899484930-be2ea0ec44a5?auto=format&fit=crop&w=800&q=80',
-			alt: 'African children in an inclusive classroom learning together',
+			src: unsplashImage('photo-1567057419565-4349c49d8a04', 1600),
+			alt: 'Schoolchildren in a classroom in Sierra Leone',
 			title: 'Inclusive education',
-			description: 'Adapted classrooms give children with disabilities and underprivileged youth the foundation to build their futures.',
+			description: 'A real classroom in Sierra Leone anchors the education story in an African school environment instead of a generic stock scene.',
 		},
 		{
 			slot: 'Photo 03',
-			src: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80',
-			alt: 'African mother caring for a child with special needs',
+			src: unsplashImage('photo-1741940365437-e55b919a89d3', 1600),
+			alt: 'Mother and child smiling together in Kampala, Uganda',
 			title: 'Family-centered care',
-			description: 'Our programs strengthen families raising children with disabilities \u2014 no family walks this road alone.',
+			description: 'Support starts with caregivers, and this Uganda-based portrait brings that family-centered story closer to the communities the site represents.',
 		},
 		{
 			slot: 'Photo 04',
-			src: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=800&q=80',
-			alt: 'African children playing outdoors in an accessible community space',
+			src: unsplashImage('photo-1547496614-d145e2fa88ed', 1600),
+			alt: 'Three smiling schoolboys in Kenya',
 			title: 'Accessible play',
-			description: 'Inclusive play spaces where every child \u2014 regardless of ability \u2014 can explore their potential.',
+			description: 'The visual mix now shows children from East Africa rather than generic outdoor imagery that could be from anywhere.',
 		},
 		{
 			slot: 'Photo 05',
-			src: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
-			alt: 'Community health worker supporting a child in an African village',
+			src: unsplashImage('photo-1594401786546-ca96b0dc4601', 1600),
+			alt: 'Schoolgirl in Uganda sitting outside after class',
 			title: 'Health at the doorstep',
-			description: 'Community workers deliver disability screening, nutrition support, and therapy referrals directly to families.',
+			description: 'The visual tone stays grounded in African childhood and community life while the program copy carries the health and referral message.',
 		},
 		{
 			slot: 'Photo 06',
-			src: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80',
-			alt: 'Volunteers working alongside children with disabilities in an African community',
+			src: unsplashImage('photo-1695131495201-e0bb8d4b3c01', 1600),
+			alt: 'A group of smiling boys standing together in an African community',
 			title: 'Stronger together',
-			description: 'Local volunteers and trained inclusion workers champion the rights and dignity of every child.',
+			description: 'The gallery now leans toward recognizably African children and community settings, which fits the mission far better.',
 		},
 	],
 	regions: ['Kenya', 'Uganda', 'Ghana', 'DR Congo', 'South Africa', 'Rwanda'],
@@ -163,21 +166,21 @@ export const site = {
 			title: 'Back to school with the right support',
 			description:
 				'After receiving adapted learning materials, a wheelchair, and dedicated mentoring, Kwame \u2014 a boy with cerebral palsy \u2014 returned to class and now reads to his younger siblings every evening.',
-			image: 'https://images.unsplash.com/photo-1613899484930-be2ea0ec44a5?auto=format&fit=crop&w=600&q=80',
+			image: unsplashImage('photo-1567057419565-4349c49d8a04', 1200),
 		},
 		{
 			place: 'Western Kenya',
 			title: 'Early screening changes everything',
 			description:
 				'Community volunteers identified hearing loss in 6-year-old Akinyi during a routine screening visit. With hearing aids and classroom support, she is now thriving in an inclusive school.',
-			image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80',
+			image: unsplashImage('photo-1741940365437-e55b919a89d3', 1200),
 		},
 		{
 			place: 'Kinshasa, DR Congo',
 			title: 'A mother finds her village',
 			description:
 				'Marie, raising twin daughters with visual impairments alone, joined a caregiver support group. Today she trains other parents and advocates for disability rights in her community.',
-			image: 'https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=600&q=80',
+			image: unsplashImage('photo-1645043019869-6c6a2ec3d562', 1200),
 		},
 	],
 	team: [
