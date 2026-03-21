@@ -1,0 +1,350 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+	title="Impact | Alternative 12"
+	description="See measurable impact data for children with disabilities and underprivileged youth served by Alternative 12 programs across Africa."
+>
+	<SiteShell activePath="/impact">
+		<main>
+			<!-- Page Hero -->
+			<section class="page-hero">
+				<div class="hero-bg">
+					<img src={site.gallery[4].src} alt={site.gallery[4].alt} />
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content section">
+					<p class="hero-eyebrow">Our Impact</p>
+					<h1>Evidence of delivery for the children who need it most.</h1>
+					<p class="hero-sub">Measurable outcomes for children with disabilities, orphans, and underprivileged families across Africa.</p>
+				</div>
+			</section>
+
+			<!-- Stats Grid -->
+			<section class="stats-section">
+				<div class="section">
+					<div class="stats-grid">
+						{site.stats.map((stat) => (
+							<article class="stat-card">
+								<strong>{stat.value}</strong>
+								<span>{stat.label}</span>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Impact Summary + Regional Footprint -->
+			<section class="report-section">
+				<div class="section">
+					<div class="report-grid">
+						<article class="report-panel">
+							<p class="eyebrow">Annual Numbers</p>
+							<h2>Impact summary</h2>
+							<ul>
+								{site.impact.map((item) => <li>{item}</li>)}
+							</ul>
+						</article>
+						<article class="report-panel">
+							<p class="eyebrow">Where We Work</p>
+							<h2>Regional footprint</h2>
+							<div class="chips">
+								{site.regions.map((region) => <span>{region}</span>)}
+							</div>
+							<p>Active partnerships delivering inclusive education, disability support, and child welfare services across six African nations.</p>
+							<img src={site.gallery[5].src} alt={site.gallery[5].alt} class="report-photo" loading="lazy" decoding="async" />
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Stories -->
+			<section class="stories-section">
+				<div class="section">
+					<div class="section-heading">
+						<p class="eyebrow">From the Field</p>
+						<h2>Stories of inclusion and change.</h2>
+					</div>
+					<div class="story-grid">
+						{site.stories.map((story) => (
+							<article class="story-card">
+								<div class="story-img">
+									<img src={story.image} alt={story.title} loading="lazy" decoding="async" />
+								</div>
+								<div class="story-body">
+									<span class="story-tag">{story.place}</span>
+									<h3>{story.title}</h3>
+									<p>{story.description}</p>
+								</div>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="cta-section">
+				<div class="section">
+					<div class="cta-panel">
+						<h2>Help us reach more children.</h2>
+						<p>Your support directly funds inclusive education, disability services, and protection for the most vulnerable children across Africa.</p>
+						<a href="/donate" class="button button-primary">Donate Now</a>
+					</div>
+				</div>
+			</section>
+		</main>
+	</SiteShell>
+</Layout>
+
+<style>
+	.page-hero {
+		position: relative;
+		min-height: 50vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(26, 58, 42, 0.9) 0%, rgba(26, 58, 42, 0.5) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		padding: 5rem 0;
+		max-width: 640px;
+		color: #fff;
+	}
+
+	.hero-eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 0 0 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2rem, 4vw, 3.2rem);
+		margin-bottom: 1rem;
+		color: #fff;
+	}
+
+	.hero-sub {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0;
+	}
+
+	.stats-section {
+		padding: 4rem 0;
+	}
+
+	.stats-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.stat-card {
+		text-align: center;
+		padding: 2rem 1.5rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+
+	.stat-card strong {
+		display: block;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 2.2rem;
+		color: var(--primary);
+		margin-bottom: 0.4rem;
+	}
+
+	.stat-card span {
+		color: var(--text-light);
+		font-size: 0.9rem;
+	}
+
+	.report-section {
+		padding: 0 0 5rem;
+	}
+
+	.report-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.report-panel {
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+
+	.report-panel h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.report-panel ul {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+
+	.report-panel li {
+		color: var(--text-light);
+		line-height: 1.75;
+		margin-bottom: 0.5rem;
+	}
+
+	.report-panel p {
+		color: var(--text-light);
+		line-height: 1.7;
+	}
+
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.chips span {
+		padding: 0.4rem 0.85rem;
+		border-radius: 999px;
+		background: rgba(26, 58, 42, 0.08);
+		border: 1px solid var(--border);
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--primary);
+	}
+
+	.report-photo {
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+		border-radius: var(--radius-md);
+		margin-top: 1rem;
+	}
+
+	.stories-section {
+		padding: 0 0 5rem;
+	}
+
+	.story-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	.story-card {
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		overflow: hidden;
+		transition: transform 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.story-card:hover {
+		transform: translateY(-3px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.story-img img {
+		display: block;
+		width: 100%;
+		height: 200px;
+		object-fit: cover;
+	}
+
+	.story-body {
+		padding: 1.5rem;
+	}
+
+	.story-tag {
+		display: inline-block;
+		padding: 0.3rem 0.75rem;
+		border-radius: 999px;
+		background: rgba(26, 58, 42, 0.08);
+		font-size: 0.8rem;
+		font-weight: 600;
+		color: var(--primary-light);
+		margin-bottom: 0.75rem;
+	}
+
+	.story-card h3 {
+		font-size: 1.15rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.story-card p {
+		color: var(--text-light);
+		line-height: 1.65;
+		font-size: 0.95rem;
+		margin: 0;
+	}
+
+	.cta-section {
+		padding: 0 0 5rem;
+	}
+
+	.cta-panel {
+		background: var(--bg-dark);
+		color: var(--text-inverse);
+		padding: 3.5rem;
+		border-radius: var(--radius-lg);
+		text-align: center;
+	}
+
+	.cta-panel h2 {
+		color: #fff;
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
+		margin-bottom: 0.75rem;
+	}
+
+	.cta-panel p {
+		color: rgba(255, 255, 255, 0.75);
+		max-width: 520px;
+		margin: 0 auto 1.5rem;
+		line-height: 1.65;
+	}
+
+	@media (max-width: 960px) {
+		.stats-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.report-grid,
+		.story-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.stats-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

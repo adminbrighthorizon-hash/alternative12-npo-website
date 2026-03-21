@@ -1,46 +1,83 @@
-# Astro Starter Kit: Basics
+# Alternative 12 NGO Template
 
-```sh
-npm create astro@latest -- --template basics
-```
+This project is an Astro-based website template for an African NGO called Alternative 12.
+It is structured as a small multi-page site that can be adapted for:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- NGO profile websites
+- donor-facing landing pages
+- annual impact microsites
+- campaign pages for health, education, livelihoods, or climate work
 
-## 🚀 Project Structure
+## Template direction
 
-Inside of your Astro project, you'll see the following folders and files:
+The current design presents Alternative 12 as a community-led NGO working across Africa with a focus on:
+
+- girls' education
+- primary healthcare access
+- youth livelihoods
+- climate resilience
+
+All numbers, countries, names, and stories in the pages are sample content and should be replaced with verified organization data before publication.
+
+## Project structure
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── SiteShell.astro
+│   │   └── Welcome.astro
+│   ├── data/
+│   │   └── site.ts
+│   ├── layouts/
+│   │   └── Layout.astro
+│   └── pages/
+│       ├── about.astro
+│       ├── contact.astro
+│       ├── impact.astro
+│       ├── index.astro
+│       └── programs.astro
+├── package.json
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Development
 
-## 🧞 Commands
+Run from the project root:
 
-All commands are run from the root of the project, from a terminal:
+```sh
+npm install
+npm run dev
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Build for production:
 
-## 👀 Want to learn more?
+```sh
+npm run build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Preview the production build locally:
+
+```sh
+npm run preview
+```
+
+## Customization checklist
+
+Before using this template for a real NGO, update the following:
+
+1. Organization story, mission, and program data in `src/data/site.ts`
+2. SEO title and description in each file under `src/pages/`
+3. Contact email addresses and phone numbers in `src/data/site.ts`
+4. Impact metrics, partner counts, and field stories throughout the pages
+5. Brand assets such as favicon, logo, and social metadata
+
+## Tech stack
+
+- Astro 6
+- Plain Astro components and CSS
+
+No additional UI framework is required for this template.
+# alternative12-npo-website

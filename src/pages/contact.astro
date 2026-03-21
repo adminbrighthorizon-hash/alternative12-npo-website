@@ -1,0 +1,269 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+	title="Contact | Alternative 12"
+	description="Contact Alternative 12 for partnerships, funding, disability inclusion programs, and enquiries about our work across Africa."
+>
+	<SiteShell activePath="/contact">
+		<main>
+			<!-- Page Hero -->
+			<section class="page-hero">
+				<div class="hero-bg">
+					<img src={site.gallery[0].src} alt={site.gallery[0].alt} />
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content section">
+					<p class="hero-eyebrow">Contact Us</p>
+					<h1>Start a conversation about partnerships, giving, or collaboration.</h1>
+					<p class="hero-sub">Whether you are a donor, disability organization, school, or community partner, we would love to hear from you.</p>
+				</div>
+			</section>
+
+			<!-- Donor CTA -->
+			<section class="donor-cta-section">
+				<div class="section">
+					<div class="donor-cta">
+						<div class="donor-cta-text">
+							<p class="eyebrow">Support the Mission</p>
+							<h2>Ready to help a child with a disability or from an underprivileged background?</h2>
+							<p>Your donation directly funds inclusive education, assistive devices, therapy, and family support across Africa.</p>
+						</div>
+						<a class="button button-primary" href="/donate">Go to Donation Page</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Cards -->
+			<section class="contact-section">
+				<div class="section">
+					<div class="contact-grid">
+						<article class="contact-card">
+							<h3>Partnerships</h3>
+							<p>For institutional partnerships, disability organizations, and strategic collaboration.</p>
+							<a href={`mailto:${site.contacts.partnerships}`}>{site.contacts.partnerships}</a>
+						</article>
+						<article class="contact-card">
+							<h3>General Enquiries</h3>
+							<p>For media, volunteer interest, community introductions, and general questions.</p>
+							<a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a>
+						</article>
+						<article class="contact-card">
+							<h3>Phone</h3>
+							<p>Regional coordination office line.</p>
+							<a href={`tel:${site.contacts.phone.replace(/\s+/g, '')}`}>{site.contacts.phone}</a>
+						</article>
+						<article class="contact-card">
+							<h3>Office</h3>
+							<p>{site.contacts.address}</p>
+							<span class="hours">Mon&ndash;Fri, 08:00&ndash;17:00 CAT</span>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Map / Photo Section -->
+			<section class="photo-section">
+				<div class="section">
+					<div class="photo-grid">
+						<figure class="photo-card">
+							<img src={site.gallery[1].src} alt={site.gallery[1].alt} loading="lazy" decoding="async" />
+							<figcaption>Inclusive classroom, East Africa</figcaption>
+						</figure>
+						<figure class="photo-card">
+							<img src={site.gallery[3].src} alt={site.gallery[3].alt} loading="lazy" decoding="async" />
+							<figcaption>Accessible play program, West Africa</figcaption>
+						</figure>
+					</div>
+				</div>
+			</section>
+		</main>
+	</SiteShell>
+</Layout>
+
+<style>
+	.page-hero {
+		position: relative;
+		min-height: 45vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(26, 58, 42, 0.9) 0%, rgba(26, 58, 42, 0.5) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		padding: 5rem 0;
+		max-width: 640px;
+		color: #fff;
+	}
+
+	.hero-eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 0 0 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+		margin-bottom: 1rem;
+		color: #fff;
+	}
+
+	.hero-sub {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0;
+	}
+
+	.donor-cta-section {
+		padding: 4rem 0;
+	}
+
+	.donor-cta {
+		display: grid;
+		grid-template-columns: 1.3fr 0.7fr;
+		gap: 2rem;
+		align-items: center;
+		padding: 2.5rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+	}
+
+	.donor-cta h2 {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.donor-cta p {
+		color: var(--text-light);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	.donor-cta .button {
+		justify-self: end;
+		white-space: nowrap;
+	}
+
+	.contact-section {
+		padding: 0 0 5rem;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.contact-card {
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+
+	.contact-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.contact-card p {
+		color: var(--text-light);
+		line-height: 1.65;
+		margin: 0 0 0.75rem;
+	}
+
+	.contact-card a {
+		display: inline-block;
+		font-weight: 600;
+		color: var(--primary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.contact-card a:hover {
+		color: var(--primary-light);
+	}
+
+	.hours {
+		font-size: 0.9rem;
+		color: var(--text-light);
+	}
+
+	.photo-section {
+		padding: 0 0 5rem;
+	}
+
+	.photo-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.photo-card {
+		margin: 0;
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		position: relative;
+	}
+
+	.photo-card img {
+		display: block;
+		width: 100%;
+		height: 280px;
+		object-fit: cover;
+	}
+
+	.photo-card figcaption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 2rem 1.25rem 1.25rem;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+		color: #fff;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	@media (max-width: 960px) {
+		.donor-cta {
+			grid-template-columns: 1fr;
+		}
+
+		.donor-cta .button {
+			justify-self: start;
+		}
+
+		.contact-grid,
+		.photo-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,277 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { site } from '../data/site';
+---
+
+<Layout
+	title="Donate | Alternative 12"
+	description="Support children with disabilities and underprivileged youth across Africa through inclusive education, health, and community-based care programs."
+>
+	<SiteShell activePath="/donate">
+		<main>
+			<!-- Page Hero -->
+			<section class="page-hero">
+				<div class="hero-bg">
+					<img src={site.gallery[2].src} alt={site.gallery[2].alt} />
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content section">
+					<p class="hero-eyebrow">Give With Purpose</p>
+					<h1>Change a child's life today.</h1>
+					<p class="hero-sub">Every contribution funds inclusive education, disability support, and protection for the most vulnerable children across Africa.</p>
+					<div class="hero-actions">
+						<a class="button button-primary" href={`mailto:${site.contacts.partnerships}?subject=Donation%20Pledge`}>Pledge Support</a>
+						<a class="button button-secondary hero-outline" href="/impact">See Our Impact</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- Appeal Banner -->
+			<section class="appeal-section">
+				<div class="section">
+					<div class="appeal-card">
+						<p class="eyebrow">Current Appeal</p>
+						<strong class="appeal-target">{site.donationGoal.target}</strong>
+						<p>{site.donationGoal.focus}</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- Giving Tiers -->
+			<section class="tiers-section">
+				<div class="section">
+					<div class="section-heading">
+						<p class="eyebrow">Giving Options</p>
+						<h2>Choose how you can help.</h2>
+					</div>
+					<div class="tier-grid">
+						{site.donationTiers.map((tier) => (
+							<article class="tier-card">
+								<strong class="tier-amount">{tier.amount}</strong>
+								<h3>{tier.title}</h3>
+								<p>{tier.description}</p>
+								<a class="button button-secondary" href={`mailto:${site.contacts.general}?subject=I%20want%20to%20give%20${encodeURIComponent(tier.amount)}`}>Choose This Gift</a>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<!-- Major Donors -->
+			<section class="donor-section">
+				<div class="section">
+					<div class="donor-panel">
+						<div class="donor-text">
+							<p class="eyebrow">For Foundations & Major Donors</p>
+							<h2>Looking for a deeper partnership?</h2>
+							<p>We work with foundations, governments, corporate partners, and diaspora giving circles committed to disability inclusion and child welfare in Africa. Get in touch to discuss multi-year grants, program sponsorships, or in-kind partnerships.</p>
+						</div>
+						<div class="donor-actions">
+							<a class="button button-primary" href={`mailto:${site.contacts.partnerships}`}>Talk to Partnerships</a>
+							<a class="button button-secondary" href="/contact">Request a Funding Deck</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+	</SiteShell>
+</Layout>
+
+<style>
+	.page-hero {
+		position: relative;
+		min-height: 50vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+
+	.hero-bg {
+		position: absolute;
+		inset: 0;
+	}
+
+	.hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(26, 58, 42, 0.9) 0%, rgba(26, 58, 42, 0.5) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		padding: 5rem 0;
+		max-width: 640px;
+		color: #fff;
+	}
+
+	.hero-eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 0 0 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2rem, 4vw, 3.2rem);
+		margin-bottom: 1rem;
+		color: #fff;
+	}
+
+	.hero-sub {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0 0 1.5rem;
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.hero-outline {
+		border-color: rgba(255, 255, 255, 0.4);
+		color: #fff;
+	}
+
+	.hero-outline:hover {
+		border-color: #fff;
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	.appeal-section {
+		padding: 4rem 0;
+	}
+
+	.appeal-card {
+		text-align: center;
+		padding: 2.5rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+	}
+
+	.appeal-target {
+		display: block;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 3rem;
+		color: var(--primary);
+		margin: 0.5rem 0 0.75rem;
+	}
+
+	.appeal-card p {
+		color: var(--text-light);
+		margin: 0;
+	}
+
+	.tiers-section {
+		padding: 0 0 5rem;
+	}
+
+	.tier-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.tier-card {
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+		display: flex;
+		flex-direction: column;
+		transition: transform 0.25s ease, box-shadow 0.25s ease;
+	}
+
+	.tier-card:hover {
+		transform: translateY(-3px);
+		box-shadow: var(--shadow-md);
+	}
+
+	.tier-amount {
+		display: block;
+		font-family: 'Playfair Display', Georgia, serif;
+		font-size: 2rem;
+		color: var(--primary);
+		margin-bottom: 0.75rem;
+	}
+
+	.tier-card h3 {
+		font-size: 1.15rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.tier-card p {
+		color: var(--text-light);
+		line-height: 1.65;
+		font-size: 0.95rem;
+		margin: 0 0 auto;
+		padding-bottom: 1.25rem;
+	}
+
+	.donor-section {
+		padding: 0 0 5rem;
+	}
+
+	.donor-panel {
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap: 2rem;
+		align-items: center;
+		padding: 3rem;
+		background: var(--bg-dark);
+		color: var(--text-inverse);
+		border-radius: var(--radius-lg);
+	}
+
+	.donor-panel h2 {
+		color: #fff;
+		font-size: 1.6rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.donor-panel p {
+		color: rgba(255, 255, 255, 0.75);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	.donor-actions {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		align-items: flex-end;
+	}
+
+	@media (max-width: 960px) {
+		.tier-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		.donor-panel {
+			grid-template-columns: 1fr;
+		}
+
+		.donor-actions {
+			align-items: flex-start;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.tier-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>
