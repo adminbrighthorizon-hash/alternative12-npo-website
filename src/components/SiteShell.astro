@@ -99,18 +99,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <style>
 	/* ─── Design tokens ─── */
 	:global(:root) {
-		--primary: #1a3a2a;
-		--primary-light: #2d6a4f;
-		--accent: #d4a843;
-		--accent-warm: #c56d3d;
-		--bg: #fafaf8;
-		--bg-dark: #1a3a2a;
+		--primary: #f97316;
+		--primary-light: #fb923c;
+		--accent: #fdba74;
+		--accent-warm: #ea580c;
+		--bg: #fcf6ef;
+		--bg-dark: #111111;
 		--surface: #ffffff;
-		--surface-glass: rgba(255, 255, 255, 0.82);
-		--text: #1a1a1a;
-		--text-light: #555555;
-		--text-inverse: #f0f0ec;
-		--border: rgba(0, 0, 0, 0.08);
+		--surface-glass: rgba(255, 255, 255, 0.88);
+		--text: #111111;
+		--text-light: #4a4a4a;
+		--text-inverse: #f8f4ef;
+		--border: rgba(17, 17, 17, 0.08);
 		--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
 		--shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
 		--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
@@ -269,18 +269,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		width: 2.5rem;
 		height: 2.5rem;
 		border-radius: var(--radius-sm);
-		background: var(--primary);
+		background: linear-gradient(135deg, var(--primary) 0 58%, var(--bg-dark) 58% 100%);
+		border: 1px solid rgba(17, 17, 17, 0.18);
 		color: #fff;
 		font-weight: 700;
 		font-size: 0.85rem;
 		letter-spacing: 0.06em;
+		box-shadow: 0 10px 24px rgba(249, 115, 22, 0.22);
 	}
 
 	.brand-name {
 		font-family: 'Playfair Display', Georgia, serif;
 		font-weight: 700;
 		font-size: 1.25rem;
-		color: var(--primary);
+		color: var(--bg-dark);
 	}
 
 	.mobile-toggle {
@@ -376,7 +378,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.footer-brand .brand-mark {
-		background: rgba(255, 255, 255, 0.15);
+		background: linear-gradient(135deg, var(--primary) 0 58%, #000000 58% 100%);
+		border-color: rgba(255, 255, 255, 0.18);
 	}
 
 	.footer-brand .brand-name {
