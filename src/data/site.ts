@@ -185,18 +185,18 @@ export const site = {
 	],
 	team: [
 		{
-			name: 'Dr. Amara Osei',
+			name: 'Jimmy Kindefu',
 			role: 'Executive Director',
 			bio: 'Over 15 years leading inclusive development and disability advocacy programs across West and East Africa.',
 		},
 		{
-			name: "James Ng'ang'a",
+			name: 'Aimerance Kindefu',
 			role: 'Director of Programs',
 			bio: 'Specialist in inclusive education, child protection, and disability support systems across the continent.',
 		},
 		{
-			name: 'Fatima Diallo',
-			role: 'Head of Partnerships',
+			name: 'Laurence Mukuna',
+			role: 'Head of Information Technology',
 			bio: 'Drives institutional relationships with governments, disability organizations, foundations, and community partners.',
 		},
 	],
