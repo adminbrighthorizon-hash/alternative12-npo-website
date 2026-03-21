@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
-	title="Donate | Alternative 12"
-	description="Support children with disabilities and underprivileged youth across Africa through inclusive education, health, and community-based care programs."
+	title="Our Partners | COPAK GENERAL TRADING (CGT)"
+	description="Discover CGT's strategic partnerships with national and international companies and suppliers that support high-quality industrial solutions."
 >
 	<SiteShell activePath="/donate">
 		<main>
@@ -18,33 +18,33 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<div class="hero-overlay"></div>
 				</div>
 				<div class="hero-content section">
-					<p class="hero-eyebrow">Give With Purpose</p>
-					<h1>Change a child's life today.</h1>
-					<p class="hero-sub">Every contribution funds inclusive education, disability support, and protection for the most vulnerable children across Africa.</p>
+					<p class="hero-eyebrow">Our Partners</p>
+					<h1>Strategic collaborations that strengthen every solution we deliver.</h1>
+					<p class="hero-sub">CGT works with renowned national and international partners who share our values of excellence, innovation, and reliability.</p>
 					<div class="hero-actions">
-						<a class="button button-primary" href={`mailto:${site.contacts.partnerships}?subject=Donation%20Pledge`}>Pledge Support</a>
-						<a class="button button-secondary hero-outline" href={`${base}/impact`}>See Our Impact</a>
+						<a class="button button-primary" href={`mailto:${site.contacts.partnerships}?subject=Partnership%20Enquiry`}>Become a Partner</a>
+						<a class="button button-secondary hero-outline" href={`${base}/impact`}>View Teams & Partners</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Appeal Banner -->
+			<!-- Partnership Banner -->
 			<section class="appeal-section">
 				<div class="section">
 					<div class="appeal-card">
-						<p class="eyebrow">Current Appeal</p>
+						<p class="eyebrow">Partnership Focus</p>
 						<strong class="appeal-target">{site.donationGoal.target}</strong>
 						<p>{site.donationGoal.focus}</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- Giving Tiers -->
+			<!-- Collaboration Pillars -->
 			<section class="tiers-section">
 				<div class="section">
 					<div class="section-heading">
-						<p class="eyebrow">Giving Options</p>
-						<h2>Choose how you can help.</h2>
+						<p class="eyebrow">Partnership Areas</p>
+						<h2>How we collaborate with partners.</h2>
 					</div>
 					<div class="tier-grid">
 						{site.donationTiers.map((tier) => (
@@ -52,25 +52,25 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 								<strong class="tier-amount">{tier.amount}</strong>
 								<h3>{tier.title}</h3>
 								<p>{tier.description}</p>
-								<a class="button button-secondary" href={`mailto:${site.contacts.general}?subject=I%20want%20to%20give%20${encodeURIComponent(tier.amount)}`}>Choose This Gift</a>
+								<a class="button button-secondary" href={`mailto:${site.contacts.general}?subject=Partnership%20in%20${encodeURIComponent(tier.title)}`}>Discuss This Area</a>
 							</article>
 						))}
 					</div>
 				</div>
 			</section>
 
-			<!-- Major Donors -->
+			<!-- Partner CTA -->
 			<section class="donor-section">
 				<div class="section">
 					<div class="donor-panel">
 						<div class="donor-text">
-							<p class="eyebrow">For Foundations & Major Donors</p>
-							<h2>Looking for a deeper partnership?</h2>
-							<p>We work with foundations, governments, corporate partners, and diaspora giving circles committed to disability inclusion and child welfare in Africa. Get in touch to discuss multi-year grants, program sponsorships, or in-kind partnerships.</p>
+							<p class="eyebrow">For Suppliers and Strategic Partners</p>
+							<h2>Let's build long-term value together.</h2>
+							<p>We are committed to partnerships that expand access to quality products, strengthen technical capacity, and deliver timely, efficient, and reliable solutions for industrial clients.</p>
 						</div>
 						<div class="donor-actions">
 							<a class="button button-primary" href={`mailto:${site.contacts.partnerships}`}>Talk to Partnerships</a>
-							<a class="button button-secondary" href={`${base}/contact`}>Request a Funding Deck</a>
+							<a class="button button-secondary" href={`${base}/contact`}>Contact Our Team</a>
 						</div>
 					</div>
 				</div>

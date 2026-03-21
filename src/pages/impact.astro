@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
-	title="Impact | Alternative 12"
-	description="See measurable impact data for children with disabilities and underprivileged youth served by Alternative 12 programs across Africa."
+	title="Our Teams and Partners | COPAK GENERAL TRADING (CGT)"
+	description="Learn how CGT's qualified teams and trusted partner network deliver quality, reliability, and innovation for industrial projects."
 >
 	<SiteShell activePath="/impact">
 		<main>
@@ -18,9 +18,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<div class="hero-overlay"></div>
 				</div>
 				<div class="hero-content section">
-					<p class="hero-eyebrow">Our Impact</p>
-					<h1>Evidence of delivery for the children who need it most.</h1>
-					<p class="hero-sub">Measurable outcomes for children with disabilities, orphans, and underprivileged families across Africa.</p>
+					<p class="hero-eyebrow">Our Teams and Partners</p>
+					<h1>Expert teams and strategic collaborations powering client success.</h1>
+					<p class="hero-sub">At CGT, highly qualified professionals and trusted partners work together to deliver exceptional quality and reliability on every project.</p>
 				</div>
 			</section>
 
@@ -38,36 +38,36 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				</div>
 			</section>
 
-			<!-- Impact Summary + Regional Footprint -->
+			<!-- Team and Partnership Summary -->
 			<section class="report-section">
 				<div class="section">
 					<div class="report-grid">
 						<article class="report-panel">
-							<p class="eyebrow">Annual Numbers</p>
-							<h2>Impact summary</h2>
+							<p class="eyebrow">Our Team</p>
+							<h2>Expertise and dedication</h2>
 							<ul>
 								{site.impact.map((item) => <li>{item}</li>)}
 							</ul>
 						</article>
 						<article class="report-panel">
-							<p class="eyebrow">Where We Work</p>
-							<h2>Regional footprint</h2>
+							<p class="eyebrow">Our Partner Network</p>
+							<h2>Strong strategic collaborations</h2>
 							<div class="chips">
 								{site.regions.map((region) => <span>{region}</span>)}
 							</div>
-							<p>Active partnerships delivering inclusive education, disability support, and child welfare services across six African nations.</p>
+							<p>CGT collaborates with renowned national and international companies and suppliers to provide timely, innovative, and high-quality industrial solutions.</p>
 							<img src={site.gallery[5].src} alt={site.gallery[5].alt} class="report-photo" loading="lazy" decoding="async" />
 						</article>
 					</div>
 				</div>
 			</section>
 
-			<!-- Stories -->
+			<!-- Collaboration Highlights -->
 			<section class="stories-section">
 				<div class="section">
 					<div class="section-heading">
-						<p class="eyebrow">From the Field</p>
-						<h2>Stories of inclusion and change.</h2>
+						<p class="eyebrow">Collaboration Highlights</p>
+						<h2>How teamwork and partnerships create value.</h2>
 					</div>
 					<div class="story-grid">
 						{site.stories.map((story) => (
@@ -90,9 +90,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<section class="cta-section">
 				<div class="section">
 					<div class="cta-panel">
-						<h2>Help us reach more children.</h2>
-						<p>Your support directly funds inclusive education, disability services, and protection for the most vulnerable children across Africa.</p>
-						<a href={`${base}/donate`} class="button button-primary">Donate Now</a>
+						<h2>Looking for a reliable industrial partner?</h2>
+						<p>Our teams and partner ecosystem are ready to support your next project with quality products and responsive technical service.</p>
+						<a href={`${base}/contact`} class="button button-primary">Contact CGT</a>
 					</div>
 				</div>
 			</section>

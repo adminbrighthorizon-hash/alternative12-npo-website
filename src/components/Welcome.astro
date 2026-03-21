@@ -9,7 +9,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<!-- Hero with full-bleed background image -->
 		<section class="hero">
 			<div class="hero-bg">
-				<img src={site.heroImage} alt="African children in a community setting" />
+				<img src={site.heroImage} alt="Industrial operations and technical services" />
 				<div class="hero-overlay"></div>
 			</div>
 			<div class="hero-content section">
@@ -17,8 +17,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<h1>{site.headline}</h1>
 				<p class="hero-sub">{site.subheadline}</p>
 				<div class="hero-actions">
-					<a class="button button-primary hero-btn" href={`${base}/donate`}>Donate Now</a>
-					<a class="button button-secondary hero-btn-outline" href={`${base}/about`}>Learn More</a>
+					<a class="button button-primary hero-btn" href={`${base}/contact`}>Request a Quote</a>
+					<a class="button button-secondary hero-btn-outline" href={`${base}/about`}>View Company Profile</a>
 				</div>
 			</div>
 		</section>
@@ -47,9 +47,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="mission-inner section">
 				<div class="mission-text">
 					<p class="eyebrow">Our Mission</p>
-					<h2>Locally led development that transforms lives.</h2>
+					<h2>Comprehensive solutions built around your operational goals.</h2>
 					<p class="lede">{site.mission}</p>
-					<a class="button button-secondary" href={`${base}/about`}>About Our Approach</a>
+					<a class="button button-secondary" href={`${base}/about`}>Discover Our Commitments</a>
 				</div>
 				<div class="mission-image">
 					<img src={site.gallery[0].src} alt={site.gallery[0].alt} loading="lazy" decoding="async" />
@@ -57,12 +57,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<!-- Who We Serve -->
+		<!-- Sectors We Serve -->
 		<section class="audience-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Who We Serve</p>
-					<h2>Trusted by communities, partners, and donors alike.</h2>
+					<p class="eyebrow">Sectors We Serve</p>
+					<h2>Trusted by industrial clients and technical partners.</h2>
 				</div>
 				<div class="audience-grid">
 					{site.audiences.map((audience) => (
@@ -79,8 +79,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="programs-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Our Programs</p>
-					<h2>Addressing the challenges communities face every day.</h2>
+					<p class="eyebrow">Our Products & Services</p>
+					<h2>Complete industrial support from supply to maintenance.</h2>
 				</div>
 				<div class="program-grid">
 					{site.programs.map((program) => (
@@ -97,7 +97,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					))}
 				</div>
 				<div class="programs-cta">
-					<a class="button button-primary" href={`${base}/programs`}>View All Programs</a>
+					<a class="button button-primary" href={`${base}/programs`}>View All Products & Services</a>
 				</div>
 			</div>
 		</section>
@@ -107,7 +107,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="section">
 				<div class="section-heading">
 					<p class="eyebrow">Our Work in Action</p>
-					<h2>Real communities, real impact.</h2>
+					<h2>Quality solutions in demanding industrial environments.</h2>
 				</div>
 				<div class="gallery-grid">
 					{site.gallery.map((item, index) => (
@@ -128,8 +128,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="section">
 				<div class="impact-layout">
 					<div class="impact-content">
-						<p class="eyebrow">Impact Snapshot</p>
-						<h2>Measurable results from the past 12 months.</h2>
+						<p class="eyebrow">Commitment Snapshot</p>
+						<h2>The standards that define our service delivery.</h2>
 						<ul class="impact-list">
 							{site.impact.map((item) => {
 								const [lead, ...rest] = item.split(' ');
@@ -138,8 +138,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						</ul>
 					</div>
 					<div class="impact-regions">
-						<h3>Where We Work</h3>
-						<p>Active programs across six African nations with deep local partnerships.</p>
+						<h3>Where We Operate</h3>
+						<p>Based in Lubumbashi, CGT serves clients through strong local execution and broad partner networks.</p>
 						<div class="region-chips">
 							{site.regions.map((region) => <span>{region}</span>)}
 						</div>
@@ -149,12 +149,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<!-- Stories -->
+		<!-- Expertise Stories -->
 		<section class="stories-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">From the Field</p>
-					<h2>Stories of change from across the continent.</h2>
+					<p class="eyebrow">From Our Operations</p>
+					<h2>Examples of how we support client success.</h2>
 				</div>
 				<div class="story-grid">
 					{site.stories.map((story) => (
@@ -173,17 +173,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<!-- CTA / Get Involved -->
+		<!-- CTA -->
 		<section class="cta-section">
 			<div class="cta-inner section">
 				<div class="cta-content">
-					<p class="eyebrow">Get Involved</p>
-					<h2>Join us in building stronger futures for African communities.</h2>
-					<p>Whether you are a donor, partner, or volunteer, there is a place for you in this work. Together we can reach more children, strengthen more families, and create lasting change.</p>
+					<p class="eyebrow">Work With CGT</p>
+					<h2>Need a trusted industrial solutions partner?</h2>
+					<p>From product sourcing to installation and maintenance, our team is ready to support your project with quality, responsiveness, and technical expertise.</p>
 				</div>
 				<div class="cta-actions">
-					<a class="button button-primary" href={`${base}/donate`}>Make a Donation</a>
-					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Partner With Us</a>
+					<a class="button button-primary" href={`${base}/contact`}>Request a Quote</a>
+					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Become a Partner</a>
 					<a class="button button-secondary" href={`${base}/contact`}>Contact Us</a>
 				</div>
 			</div>

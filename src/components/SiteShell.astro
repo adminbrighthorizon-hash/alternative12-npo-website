@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	<header class="site-header">
 		<div class="header-inner section">
 			<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
-				<span class="brand-mark" aria-hidden="true">A12</span>
+				<span class="brand-mark" aria-hidden="true">CGT</span>
 				<span class="brand-name">{site.name}</span>
 			</a>
 
@@ -26,7 +26,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				{site.nav.map((item) => (
 					<a class={item.href === activePath ? 'active' : undefined} href={`${base}${item.href}`}>{item.label}</a>
 				))}
-				<a class="nav-cta" href={`${base}/donate`}>Give Now</a>
+				<a class="nav-cta" href={`${base}/contact`}>Request a Quote</a>
 			</nav>
 		</div>
 	</header>
@@ -38,7 +38,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
-						<span class="brand-mark" aria-hidden="true">A12</span>
+						<span class="brand-mark" aria-hidden="true">CGT</span>
 						<span class="brand-name">{site.name}</span>
 					</a>
 					<p class="footer-mission">{site.tagline}</p>
@@ -54,7 +54,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				</div>
 
 				<div class="footer-col">
-					<h4>Programs</h4>
+					<h4>Products & Services</h4>
 					<ul>
 						{site.programs.map((p) => (
 							<li><a href={`${base}/programs`}>{p.title}</a></li>

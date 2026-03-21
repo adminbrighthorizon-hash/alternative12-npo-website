@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
-	title="Contact | Alternative 12"
-	description="Contact Alternative 12 for partnerships, funding, disability inclusion programs, and enquiries about our work across Africa."
+	title="Contact | COPAK GENERAL TRADING (CGT)"
+	description="Contact COPAK GENERAL TRADING for industrial product requests, technical services, and partnership enquiries."
 >
 	<SiteShell activePath="/contact">
 		<main>
@@ -19,21 +19,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				</div>
 				<div class="hero-content section">
 					<p class="hero-eyebrow">Contact Us</p>
-					<h1>Start a conversation about partnerships, giving, or collaboration.</h1>
-					<p class="hero-sub">Whether you are a donor, disability organization, school, or community partner, we would love to hear from you.</p>
+					<h1>Get in touch for products, services, and partnership enquiries.</h1>
+					<p class="hero-sub">Our team is ready to help with industrial sourcing, technical support, and project-specific requirements.</p>
 				</div>
 			</section>
 
-			<!-- Donor CTA -->
+			<!-- Business CTA -->
 			<section class="donor-cta-section">
 				<div class="section">
 					<div class="donor-cta">
 						<div class="donor-cta-text">
-							<p class="eyebrow">Support the Mission</p>
-							<h2>Ready to help a child with a disability or from an underprivileged background?</h2>
-							<p>Your donation directly funds inclusive education, assistive devices, therapy, and family support across Africa.</p>
+							<p class="eyebrow">Work With CGT</p>
+							<h2>Need a reliable industrial solutions provider?</h2>
+							<p>Contact us to discuss your product requirements, technical support needs, and delivery timelines.</p>
 						</div>
-						<a class="button button-primary" href={`${base}/donate`}>Go to Donation Page</a>
+						<a class="button button-primary" href={`mailto:${site.contacts.general}?subject=Industrial%20Quote%20Request`}>Request a Quote</a>
 					</div>
 				</div>
 			</section>
@@ -44,23 +44,31 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<div class="contact-grid">
 						<article class="contact-card">
 							<h3>Partnerships</h3>
-							<p>For institutional partnerships, disability organizations, and strategic collaboration.</p>
+							<p>For supplier collaborations and strategic business partnerships.</p>
 							<a href={`mailto:${site.contacts.partnerships}`}>{site.contacts.partnerships}</a>
 						</article>
 						<article class="contact-card">
 							<h3>General Enquiries</h3>
-							<p>For media, volunteer interest, community introductions, and general questions.</p>
+							<p>For products, services, and all other business enquiries.</p>
 							<a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a>
 						</article>
 						<article class="contact-card">
 							<h3>Phone</h3>
-							<p>Regional coordination office line.</p>
+							<p>Main contact line.</p>
 							<a href={`tel:${site.contacts.phone.replace(/\s+/g, '')}`}>{site.contacts.phone}</a>
+							<p style="margin-top: 0.5rem;">Secondary: <a href="tel:+27677584446">+27 67 758 4446</a></p>
 						</article>
 						<article class="contact-card">
 							<h3>Office</h3>
 							<p>{site.contacts.address}</p>
-							<span class="hours">Mon&ndash;Fri, 08:00&ndash;17:00 CAT</span>
+							<span class="hours">Lubumbashi, Haut-Katanga, RDC</span>
+						</article>
+						<article class="contact-card">
+							<h3>Company Registration</h3>
+							<p>RCCM: CD/LSH/RCCM/24-B-00695</p>
+							<p>ID NAT: 05-S9502-N58278L</p>
+							<p>NUMERO IMPOT: A2408513F</p>
+							<p>ARSP: 6209253671</p>
 						</article>
 					</div>
 				</div>
@@ -72,11 +80,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<div class="photo-grid">
 						<figure class="photo-card">
 							<img src={site.gallery[1].src} alt={site.gallery[1].alt} loading="lazy" decoding="async" />
-							<figcaption>Inclusive classroom, East Africa</figcaption>
+							<figcaption>Industrial products and technical support</figcaption>
 						</figure>
 						<figure class="photo-card">
 							<img src={site.gallery[3].src} alt={site.gallery[3].alt} loading="lazy" decoding="async" />
-							<figcaption>Accessible play program, West Africa</figcaption>
+							<figcaption>Maintenance and installation expertise</figcaption>
 						</figure>
 					</div>
 				</div>
