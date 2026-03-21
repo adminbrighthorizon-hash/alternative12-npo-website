@@ -125,3 +125,4 @@ Confirm:
 - Always use `import.meta.env.BASE_URL` for internal assets/routes
 - Centralize base-path handling in layouts/components where possible
 # copakgt-website
+# copakgt-website
