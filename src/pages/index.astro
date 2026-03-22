@@ -1,12 +1,525 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+const currentYear = new Date().getFullYear();
+
+const values = ["Excellence", "Innovation", "Adaptability", "Commitment"];
+
+const serviceCards = [
+  {
+    title: "Pumps & Valves",
+    description:
+      "Industrial pumps, control valves, mechanical seals, and rotating equipment support for continuous operations.",
+    image:
+      "https://images.unsplash.com/photo-1581092160607-ee22731ffdbb?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    title: "Electrical & Instrumentation",
+    description:
+      "Switchgear, transformers, field instrumentation, calibration, and electrical integration for process reliability.",
+    image:
+      "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    title: "PPE & Laboratory Equipment",
+    description:
+      "Certified PPE, laboratory instruments, and site consumables to protect teams and maintain quality control.",
+    image:
+      "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    title: "Specialized Services",
+    description:
+      "Geomembrane installation, industrial welding, and crusher maintenance tailored to mining and heavy industry.",
+    image:
+      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80",
+  },
+];
 ---
 
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COPAK GENERAL TRADING | Industrial Solutions</title>
+    <meta
+      name="description"
+      content="COPAK GENERAL TRADING (CGT) delivers industrial products and specialized services for mining and industrial operations across the DRC."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #121212;
+        --surface: #1a1a1a;
+        --surface-elevated: #222222;
+        --line: #333333;
+        --text: #eef0f2;
+        --text-muted: #c4c8cc;
+        --accent: #f26522;
+        --accent-soft: #ff8c00;
+        --max: 1160px;
+      }
 
-<Layout
-	title="COPAK GENERAL TRADING | Industrial Solutions for Success"
-	description="COPAK GENERAL TRADING provides complete industrial solutions including pumps, valves, electrical systems, instrumentation, and professional services."
->
-	<Welcome />
-</Layout>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Roboto", "Segoe UI", Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 85% -5%, rgba(242, 101, 34, 0.14), transparent 36%),
+          radial-gradient(circle at 8% 12%, rgba(255, 140, 0, 0.12), transparent 34%),
+          var(--bg);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(var(--max), 92%);
+        margin: 0 auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Montserrat", "Roboto", sans-serif;
+        letter-spacing: 0.015em;
+        margin: 0 0 0.8rem;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(18, 18, 18, 0.88);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav {
+        min-height: 74px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .brand {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 800;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+      }
+
+      .hero {
+        padding: 2rem 0 1.5rem;
+      }
+
+      .hero-frame {
+        position: relative;
+        min-height: 64vh;
+        border: 1px solid #3b3b3b;
+        border-radius: 18px;
+        overflow: hidden;
+        background: #0e0e0e;
+      }
+
+      .hero-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(110deg, rgba(10, 10, 10, 0.8) 24%, rgba(10, 10, 10, 0.5) 58%, rgba(242, 101, 34, 0.28) 100%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 760px;
+        padding: clamp(2rem, 5vw, 4rem);
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        border: 1px solid rgba(242, 101, 34, 0.45);
+        background: rgba(242, 101, 34, 0.2);
+        color: #ffd7c4;
+        border-radius: 999px;
+        padding: 0.35rem 0.85rem;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.95rem, 5vw, 3.6rem);
+        margin-bottom: 0.9rem;
+      }
+
+      .hero p {
+        margin: 0 0 1.15rem;
+        color: #d9dde1;
+        max-width: 66ch;
+      }
+
+      .hero-cta {
+        display: inline-block;
+        margin-top: 0.35rem;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+        border-radius: 10px;
+        padding: 0.7rem 1.15rem;
+      }
+
+      .hero-cta:hover {
+        filter: brightness(1.06);
+      }
+
+      section {
+        padding: 2.4rem 0;
+      }
+
+      .section-title {
+        font-size: clamp(1.4rem, 2.6vw, 2rem);
+      }
+
+      .section-copy {
+        color: var(--text-muted);
+        max-width: 74ch;
+        margin: 0;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .card {
+        background: linear-gradient(180deg, var(--surface) 0%, #171717 100%);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 1.15rem;
+      }
+
+      .value-list {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.7rem;
+      }
+
+      .value-pill {
+        border-radius: 999px;
+        border: 1px solid #4a4a4a;
+        background: #242424;
+        color: #f1f3f5;
+        text-align: center;
+        font-weight: 600;
+        padding: 0.55rem 0.8rem;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .service-card {
+        overflow: hidden;
+        border-radius: 16px;
+        border: 1px solid #3a3a3a;
+        background: var(--surface);
+        transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+      }
+
+      .service-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(242, 101, 34, 0.75);
+        box-shadow: 0 14px 28px rgba(242, 101, 34, 0.16);
+      }
+
+      .service-media {
+        position: relative;
+        height: 220px;
+      }
+
+      .service-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .service-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.58));
+      }
+
+      .service-body {
+        padding: 1rem;
+      }
+
+      .service-body h3 {
+        font-size: 1.1rem;
+      }
+
+      .service-body p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.94rem;
+      }
+
+      .compliance-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin-top: 0.9rem;
+      }
+
+      .compliance-item {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent);
+        border-radius: 12px;
+        padding: 0.9rem;
+      }
+
+      .compliance-item strong {
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1rem;
+      }
+
+      .contact-list p {
+        margin: 0.35rem 0;
+        color: var(--text-muted);
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        margin-top: 2rem;
+        padding: 1.3rem 0 2rem;
+      }
+
+      .footer-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+        color: #aeb4b9;
+        font-size: 0.94rem;
+      }
+
+      .arsp-highlight {
+        color: #fff;
+      }
+
+      @media (max-width: 960px) {
+        .split,
+        .services-grid,
+        .compliance-grid,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .value-list {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero-frame {
+          min-height: 58vh;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav {
+          align-items: flex-start;
+          padding: 0.9rem 0;
+          flex-direction: column;
+        }
+
+        .hero-frame {
+          min-height: 72vh;
+        }
+
+        .hero-content {
+          padding: 1.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a href="/" class="brand">COPAK <span>GENERAL TRADING</span></a>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#compliance">Compliance</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-frame">
+          <img
+            src="https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?auto=format&fit=crop&w=2200&q=80"
+            alt="Industrial processing equipment in mining environment"
+            loading="eager"
+            decoding="async"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <span class="eyebrow">Industrial Partner In DRC</span>
+            <h1>Expertise at the Service of Your Success.</h1>
+            <p>
+              COPAK GENERAL TRADING (CGT) delivers high-performance products and specialized support for
+              mining and industrial operators. We combine field expertise, technical precision, and reliable
+              execution to keep operations productive and secure.
+            </p>
+            <a href="#services" class="hero-cta">Explore Solutions</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2 class="section-title">About Us</h2>
+        <p class="section-copy">
+          We support procurement, engineering, and maintenance teams with practical industrial solutions,
+          from sourcing critical components to delivering specialized field services.
+        </p>
+        <div class="split" style="margin-top: 1rem;">
+          <article class="card">
+            <h3>Vision</h3>
+            <p class="section-copy">To become a leading industrial solutions company in the Democratic Republic of Congo.</p>
+          </article>
+          <article class="card">
+            <h3>Mission</h3>
+            <p class="section-copy">
+              Deliver reliable, innovative, and adaptive services that improve safety, uptime, and performance
+              for industrial clients.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Core Values</h2>
+        <div class="value-list">
+          {values.map((value) => <div class="value-pill">{value}</div>)}
+        </div>
+      </section>
+
+      <section id="services">
+        <h2 class="section-title">Services & Products</h2>
+        <p class="section-copy">
+          Categorized solutions designed for heavy industry and mining operations.
+        </p>
+        <div class="services-grid" style="margin-top: 1rem;">
+          {serviceCards.map((service) => (
+            <article class="service-card">
+              <div class="service-media">
+                <img src={service.image} alt={service.title} loading="lazy" decoding="async" />
+              </div>
+              <div class="service-body">
+                <h3>{service.title}</h3>
+                <p>{service.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="compliance">
+        <h2 class="section-title">Compliance & Certifications</h2>
+        <p class="section-copy">
+          Trusted compliance profile for industrial and mining partnerships in the DRC.
+        </p>
+        <div class="compliance-grid">
+          <article class="compliance-item">
+            <strong>RCCM</strong>
+            <span>CD/LSH/RCCM/24-B-00695</span>
+          </article>
+          <article class="compliance-item">
+            <strong>ID NAT</strong>
+            <span>05-S9502-N58278L</span>
+          </article>
+          <article class="compliance-item">
+            <strong>ARSP</strong>
+            <span>6209253671</span>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-grid">
+          <article class="card contact-list">
+            <h3>Lubumbashi Office</h3>
+            <p>Av. 33 Tony Mwana, Q/ Golf Karavia Plateaux 3</p>
+            <p>C/ Annexe, Lubumbashi, Haut-Katanga, DRC</p>
+            <p>DRC Phone: <a href="tel:+243897980803">+243 89 798 0803</a></p>
+            <p>South Africa Phone: <a href="tel:+27677584446">+27 67 758 4446</a></p>
+            <p>Email: <a href="mailto:info@copakgt.com">info@copakgt.com</a></p>
+          </article>
+          <article class="card">
+            <h3>Operational Focus</h3>
+            <p class="section-copy">
+              Responsive support for engineers, procurement teams, and operations managers who need
+              dependable supply and technical service under field constraints.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-line">
+        <span>© {currentYear} COPAK GENERAL TRADING (CGT). All rights reserved.</span>
+        <span class="arsp-highlight">ARSP Certified Industrial Partner</span>
+      </div>
+    </footer>
+  </body>
+</html>

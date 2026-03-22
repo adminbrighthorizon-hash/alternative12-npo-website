@@ -1,194 +1,88 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import SiteShell from '../components/SiteShell.astro';
-import { site } from '../data/site';
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const serviceGroups = [
+  {
+    category: "Pumps & Valves",
+    points: ["Centrifugal and slurry pumps", "Control and isolation valves", "Mechanical seal support"],
+  },
+  {
+    category: "Electrical & Instrumentation",
+    points: ["Switchgear and cable systems", "Field instrumentation and calibration", "Control panel integration"],
+  },
+  {
+    category: "PPE & Laboratory Equipment",
+    points: ["Certified safety gear for industrial teams", "Sampling and testing tools", "Laboratory consumables"],
+  },
+  {
+    category: "Specialized Services",
+    points: ["Geomembrane installation and repair", "Industrial welding interventions", "Crusher maintenance services"],
+  },
+];
 ---
 
-<Layout
-	title="Our Services | COPAK GENERAL TRADING"
-	description="Explore COPAK GENERAL TRADING's complete portfolio of industrial solutions including pumps, valves, electrical systems, instrumentation, and professional services."
->
-	<SiteShell activePath="/programs">
-		<main>
-			<!-- Page Hero -->
-			<section class="page-hero">
-				<div class="hero-bg">
-					<img src={site.programs[0].image} alt="Industrial equipment" />
-					<div class="hero-overlay"></div>
-				</div>
-				<div class="hero-content section">
-					<p class="hero-eyebrow">Our Services</p>
-					<h1>Complete industrial solutions tailored to your operation.</h1>
-					<p class="hero-sub">From equipment sourcing and professional installation to comprehensive maintenance, we provide integrated solutions designed with your specific challenges in mind.</p>
-				</div>
-			</section>
-
-			<!-- Programs List -->
-			<section class="programs-section">
-				<div class="section">
-					{site.programs.map((program, i) => (
-						<article class:list={['program-row', i % 2 !== 0 && 'reversed']}>
-							<div class="program-image">
-								<img src={program.image} alt={program.title} loading="lazy" decoding="async" />
-							</div>
-							<div class="program-content">
-								<p class="eyebrow">Program {program.id}</p>
-								<h2>{program.title}</h2>
-								<p class="program-desc">{program.description}</p>
-							</div>
-						</article>
-					))}
-				</div>
-			</section>
-
-			<!-- CTA -->
-			<section class="cta-section">
-				<div class="section">
-					<div class="cta-panel">
-						<h2>Explore our services today.</h2>
-						<p>Partner with our team for laboratory and industrial equipment solutions tailored to your operations across Africa.</p>
-						<a href={`${base}/contact`} class="button button-primary">Request Service Support</a>
-					</div>
-				</div>
-			</section>
-		</main>
-	</SiteShell>
-</Layout>
-
-<style>
-	.page-hero {
-		position: relative;
-		min-height: 50vh;
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-	}
-
-	.hero-bg {
-		position: absolute;
-		inset: 0;
-	}
-
-	.hero-bg img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-
-	.hero-overlay {
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(to right, rgba(26, 58, 42, 0.9) 0%, rgba(26, 58, 42, 0.5) 100%);
-	}
-
-	.hero-content {
-		position: relative;
-		z-index: 2;
-		padding: 5rem 0;
-		max-width: 640px;
-		color: #fff;
-	}
-
-	.hero-eyebrow {
-		text-transform: uppercase;
-		letter-spacing: 0.15em;
-		font-size: 0.85rem;
-		font-weight: 600;
-		color: rgba(255, 255, 255, 0.75);
-		margin: 0 0 1rem;
-	}
-
-	.hero-content h1 {
-		font-size: clamp(2rem, 4vw, 3.2rem);
-		margin-bottom: 1rem;
-		color: #fff;
-	}
-
-	.hero-sub {
-		font-size: 1.1rem;
-		line-height: 1.7;
-		color: rgba(255, 255, 255, 0.85);
-		margin: 0;
-	}
-
-	.programs-section {
-		padding: 5rem 0;
-	}
-
-	.program-row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 3rem;
-		align-items: center;
-		margin-bottom: 5rem;
-	}
-
-	.program-row:last-child {
-		margin-bottom: 0;
-	}
-
-	.program-row.reversed .program-image {
-		order: 2;
-	}
-
-	.program-image {
-		border-radius: var(--radius-lg);
-		overflow: hidden;
-		box-shadow: var(--shadow-lg);
-	}
-
-	.program-image img {
-		display: block;
-		width: 100%;
-		height: 360px;
-		object-fit: cover;
-	}
-
-	.program-content h2 {
-		font-size: clamp(1.5rem, 2.5vw, 2rem);
-		margin-bottom: 1rem;
-	}
-
-	.program-desc {
-		color: var(--text-light);
-		line-height: 1.75;
-		margin: 0;
-	}
-
-	.cta-section {
-		padding: 0 0 5rem;
-	}
-
-	.cta-panel {
-		background: var(--bg-dark);
-		color: var(--text-inverse);
-		padding: 3.5rem;
-		border-radius: var(--radius-lg);
-		text-align: center;
-	}
-
-	.cta-panel h2 {
-		color: #fff;
-		font-size: clamp(1.6rem, 3vw, 2.2rem);
-		margin-bottom: 0.75rem;
-	}
-
-	.cta-panel p {
-		color: rgba(255, 255, 255, 0.75);
-		max-width: 480px;
-		margin: 0 auto 1.5rem;
-		line-height: 1.65;
-	}
-
-	@media (max-width: 960px) {
-		.program-row {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-
-		.program-row.reversed .program-image {
-			order: 0;
-		}
-	}
-</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services | COPAK GENERAL TRADING</title>
+    <meta name="description" content="Industrial services and products by COPAK GENERAL TRADING." />
+    <style>
+      :root { --bg:#121212; --surface:#1a1a1a; --line:#333; --text:#eef0f2; --muted:#c4c8cc; --accent:#f26522; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--bg); color:var(--text); font-family:Roboto, "Segoe UI", Arial, sans-serif; }
+      .wrap { width:min(1100px, 92%); margin:0 auto; }
+      .hero { padding:2rem 0; }
+      .hero-card { border:1px solid var(--line); border-radius:16px; padding:2rem; background:linear-gradient(160deg, #1a1a1a, #232323); }
+      h1,h2,h3 { margin:0 0 .75rem; font-family:Montserrat, Roboto, sans-serif; }
+      .eyebrow { color:#ffc49f; text-transform:uppercase; letter-spacing:.12em; font-size:.76rem; }
+      .desc { color:var(--muted); margin:0; max-width:72ch; }
+      .grid { padding:0 0 2.4rem; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+      .card { border:1px solid var(--line); border-radius:14px; padding:1rem; background:var(--surface); transition:border-color .2s ease, transform .2s ease; }
+      .card:hover { border-color:rgba(242,101,34,.7); transform:translateY(-3px); }
+      ul { margin:.5rem 0 0; padding-left:1.1rem; color:var(--muted); }
+      a { color:#fff; text-decoration:none; }
+      .top { padding:1rem 0; border-bottom:1px solid var(--line); }
+      .top a { color:var(--muted); }
+      .contact { margin:0 0 2.4rem; }
+      .contact h2 { margin-bottom:.35rem; }
+      .contact p { margin:.35rem 0; color:var(--muted); }
+      @media (max-width:840px){ .grid{grid-template-columns:1fr;} }
+    </style>
+  </head>
+  <body>
+    <div class="top">
+      <div class="wrap"><a href="/">← Back to Home</a></div>
+    </div>
+    <main class="wrap">
+      <section class="hero">
+        <article class="hero-card">
+          <p class="eyebrow">CGT Portfolio</p>
+          <h1>Industrial Products and Specialized Services</h1>
+          <p class="desc">
+            End-to-end support for procurement, maintenance, and field operations in mining and heavy industry.
+          </p>
+        </article>
+      </section>
+      <section class="grid">
+        {serviceGroups.map((group) => (
+          <article class="card">
+            <h3>{group.category}</h3>
+            <ul>
+              {group.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </article>
+        ))}
+      </section>
+      <section class="contact">
+        <article class="card">
+          <h2>Contact</h2>
+          <p>Av. 33 Tony Mwana, Q/ Golf Karavia Plateaux 3</p>
+          <p>C/ Annexe, Lubumbashi, Haut-Katanga, DRC</p>
+          <p>DRC Phone: <a href="tel:+243897980803">+243 89 798 0803</a></p>
+          <p>South Africa Phone: <a href="tel:+27677584446">+27 67 758 4446</a></p>
+          <p>Email: <a href="mailto:info@copakgt.com">info@copakgt.com</a></p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
