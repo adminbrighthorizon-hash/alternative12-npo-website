@@ -6,8 +6,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout
-	title="Donate | Alternative 12"
-	description="Support children with disabilities and underprivileged youth across Africa through inclusive education, health, and community-based care programs."
+	title="Get Started | COPAK GENERAL TRADING"
+	description="Connect with COPAK GENERAL TRADING for equipment quotes, consultations, and integrated industrial solutions."
 >
 	<SiteShell activePath="/donate">
 		<main>
@@ -18,59 +18,60 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 					<div class="hero-overlay"></div>
 				</div>
 				<div class="hero-content section">
-					<p class="hero-eyebrow">Give With Purpose</p>
-					<h1>Change a child's life today.</h1>
-					<p class="hero-sub">Every contribution funds inclusive education, disability support, and protection for the most vulnerable children across Africa.</p>
+					<p class="hero-eyebrow">Get Started</p>
+					<h1>Request a consultation or equipment quote.</h1>
+					<p class="hero-sub">Let us assess your industrial needs and design a tailored solution that maximizes uptime and controls costs.</p>
 					<div class="hero-actions">
-						<a class="button button-primary" href={`mailto:${site.contacts.partnerships}?subject=Donation%20Pledge`}>Pledge Support</a>
-						<a class="button button-secondary hero-outline" href={`${base}/impact`}>See Our Impact</a>
+						<a class="button button-primary" href={`mailto:${site.contacts.partnerships}?subject=Equipment%20Quote%20Request`}>Request Quote</a>
+						<a class="button button-secondary hero-outline" href={`${base}/about`}>View Our Approach</a>
 					</div>
 				</div>
 			</section>
 
-			<!-- Appeal Banner -->
-			<section class="appeal-section">
-				<div class="section">
-					<div class="appeal-card">
-						<p class="eyebrow">Current Appeal</p>
-						<strong class="appeal-target">{site.donationGoal.target}</strong>
-						<p>{site.donationGoal.focus}</p>
-					</div>
-				</div>
-			</section>
-
-			<!-- Giving Tiers -->
-			<section class="tiers-section">
+			<!-- Service Overview -->
+			<section class="services-overview">
 				<div class="section">
 					<div class="section-heading">
-						<p class="eyebrow">Giving Options</p>
-						<h2>Choose how you can help.</h2>
+						<p class="eyebrow">How We Work With You</p>
+						<h2>A proven approach to delivering results.</h2>
 					</div>
-					<div class="tier-grid">
-						{site.donationTiers.map((tier) => (
-							<article class="tier-card">
-								<strong class="tier-amount">{tier.amount}</strong>
-								<h3>{tier.title}</h3>
-								<p>{tier.description}</p>
-								<a class="button button-secondary" href={`mailto:${site.contacts.general}?subject=I%20want%20to%20give%20${encodeURIComponent(tier.amount)}`}>Choose This Gift</a>
-							</article>
-						))}
+					<div class="overview-grid">
+						<article class="overview-card">
+							<span class="step-number">01</span>
+							<h3>Assessment</h3>
+							<p>We conduct an on-site evaluation of your equipment needs, operational challenges, and integration requirements.</p>
+						</article>
+						<article class="overview-card">
+							<span class="step-number">02</span>
+							<h3>Design</h3>
+							<p>We tailor integrated solutions combining equipment, installation, training, and full lifecycle support.</p>
+						</article>
+						<article class="overview-card">
+							<span class="step-number">03</span>
+							<h3>Deployment</h3>
+							<p>Professional installation, testing, and operator training ensure seamless integration and adoption.</p>
+						</article>
+						<article class="overview-card">
+							<span class="step-number">04</span>
+							<h3>Support</h3>
+								<p>Professional maintenance, preventive service plans, and spare parts management for continuous reliability.</p>
+						</article>
 					</div>
 				</div>
 			</section>
 
-			<!-- Major Donors -->
-			<section class="donor-section">
+			<!-- Partnership CTA -->
+			<section class="partnership-section">
 				<div class="section">
-					<div class="donor-panel">
-						<div class="donor-text">
-							<p class="eyebrow">For Foundations & Major Donors</p>
-							<h2>Looking for a deeper partnership?</h2>
-							<p>We work with foundations, governments, corporate partners, and diaspora giving circles committed to disability inclusion and child welfare in Africa. Get in touch to discuss multi-year grants, program sponsorships, or in-kind partnerships.</p>
+					<div class="partnership-panel">
+						<div class="partnership-text">
+							<p class="eyebrow">Enterprise Partnerships</p>
+							<h2>Looking for integrated industrial solutions?</h2>
+						<p>We partner with mining operations, manufacturers, engineering firms, and contractors to deliver equipment, installation, and professional maintenance. Whether you need equipment sourcing, system integration, or maintenance services, let\'s discuss how COPAK GENERAL TRADING can support your operational success.</p>
 						</div>
-						<div class="donor-actions">
-							<a class="button button-primary" href={`mailto:${site.contacts.partnerships}`}>Talk to Partnerships</a>
-							<a class="button button-secondary" href={`${base}/contact`}>Request a Funding Deck</a>
+						<div class="partnership-actions">
+							<a class="button button-primary" href={`mailto:${site.contacts.general}`}>Schedule Consultation</a>
+							<a class="button button-secondary" href={`${base}/programs`}>View Our Services</a>
 						</div>
 					</div>
 				</div>

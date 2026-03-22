@@ -11,11 +11,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div class="site-shell">
+	<div class="floating-objects" aria-hidden="true">
+		<span class="orb orb-1"></span>
+		<span class="orb orb-2"></span>
+		<span class="orb orb-3"></span>
+	</div>
+
 	<header class="site-header">
 		<div class="header-inner section">
 			<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
-				<span class="brand-mark" aria-hidden="true">A12</span>
-				<span class="brand-name">{site.name}</span>
+				<img class="brand-logo" src={`${base}/favicon.png`} alt={site.name} loading="eager" decoding="async" />
 			</a>
 
 			<button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -26,7 +31,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				{site.nav.map((item) => (
 					<a class={item.href === activePath ? 'active' : undefined} href={`${base}${item.href}`}>{item.label}</a>
 				))}
-				<a class="nav-cta" href={`${base}/donate`}>Transform a Child’s Future</a>
 			</nav>
 		</div>
 	</header>
@@ -38,8 +42,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="footer-grid">
 				<div class="footer-brand">
 					<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
-						<span class="brand-mark" aria-hidden="true">A12</span>
-						<span class="brand-name">{site.name}</span>
+						<img class="brand-logo" src={`${base}/favicon.png`} alt={site.name} loading="lazy" decoding="async" />
 					</a>
 					<p class="footer-mission">{site.tagline}</p>
 				</div>
@@ -99,12 +102,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <style>
 	/* ─── Design tokens ─── */
 	:global(:root) {
-		--primary: #1a3a2a;
-		--primary-light: #2d6a4f;
-		--accent: #d4a843;
-		--accent-warm: #c56d3d;
+		--primary: #1a1a1a;
+		--primary-light: #333333;
+		--accent: #ff8c42;
+		--accent-warm: #ff6b35;
 		--bg: #fafaf8;
-		--bg-dark: #1a3a2a;
+		--bg-dark: #1a1a1a;
 		--surface: #ffffff;
 		--surface-glass: rgba(255, 255, 255, 0.82);
 		--text: #1a1a1a;
@@ -236,6 +239,80 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
+		overflow: hidden;
+	}
+
+	.floating-objects {
+		position: fixed;
+		inset: 0;
+		z-index: 0;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.orb {
+		position: absolute;
+		border-radius: 9999px;
+		filter: blur(1px);
+		opacity: 0.22;
+		will-change: transform;
+	}
+
+	.orb-1 {
+		width: 280px;
+		height: 280px;
+		top: 12%;
+		left: -80px;
+		background: radial-gradient(circle at 30% 30%, var(--accent), transparent 70%);
+		animation: drift-1 18s ease-in-out infinite;
+	}
+
+	.orb-2 {
+		width: 220px;
+		height: 220px;
+		top: 56%;
+		right: -60px;
+		background: radial-gradient(circle at 30% 30%, var(--primary-light), transparent 70%);
+		animation: drift-2 20s ease-in-out infinite;
+	}
+
+	.orb-3 {
+		width: 180px;
+		height: 180px;
+		bottom: 8%;
+		left: 28%;
+		background: radial-gradient(circle at 30% 30%, var(--accent-warm), transparent 70%);
+		animation: drift-3 16s ease-in-out infinite;
+	}
+
+	@keyframes drift-1 {
+		0%,
+		100% {
+			transform: translate3d(0, 0, 0) scale(1);
+		}
+		50% {
+			transform: translate3d(70px, -30px, 0) scale(1.08);
+		}
+	}
+
+	@keyframes drift-2 {
+		0%,
+		100% {
+			transform: translate3d(0, 0, 0) scale(1);
+		}
+		50% {
+			transform: translate3d(-80px, 24px, 0) scale(1.06);
+		}
+	}
+
+	@keyframes drift-3 {
+		0%,
+		100% {
+			transform: translate3d(0, 0, 0) scale(1);
+		}
+		50% {
+			transform: translate3d(45px, -40px, 0) scale(1.05);
+		}
 	}
 
 	/* ─── Header ─── */
@@ -258,22 +335,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	.brand-lockup {
 		display: flex;
 		align-items: center;
-		gap: 0.75rem;
 		text-decoration: none;
 	}
 
-	.brand-mark {
+	.brand-logo {
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: var(--radius-sm);
-		background: var(--primary);
-		color: #fff;
-		font-weight: 700;
-		font-size: 0.85rem;
-		letter-spacing: 0.06em;
+		width: clamp(100px, 13vw, 170px);
+		height: auto;
 	}
 
 	.brand-name {
@@ -375,12 +443,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 	}
 
-	.footer-brand .brand-mark {
-		background: rgba(255, 255, 255, 0.15);
-	}
-
-	.footer-brand .brand-name {
-		color: #fff;
+	.footer-brand .brand-logo {
+		width: clamp(110px, 14vw, 180px);
 	}
 
 	.footer-mission {
@@ -501,6 +565,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			width: min(100% - 1.5rem, 1200px);
 		}
 
+		.brand-logo {
+			width: 120px;
+		}
+
 		.footer-grid {
 			grid-template-columns: 1fr;
 		}
@@ -509,6 +577,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			flex-direction: column;
 			gap: 0.75rem;
 			text-align: center;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.orb {
+			animation: none;
 		}
 	}
 </style>

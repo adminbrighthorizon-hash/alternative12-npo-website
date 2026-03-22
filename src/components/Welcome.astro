@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<h1>{site.headline}</h1>
 				<p class="hero-sub">{site.subheadline}</p>
 				<div class="hero-actions">
-					<a class="button button-primary hero-btn" href={`${base}/donate`}>Donate Now</a>
+				<a class="button button-primary hero-btn" href={`${base}/contact`}>Request Quote</a>
 					<a class="button button-secondary hero-btn-outline" href={`${base}/about`}>Learn More</a>
 				</div>
 			</div>
@@ -62,7 +62,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="section">
 				<div class="section-heading">
 					<p class="eyebrow">Who We Serve</p>
-					<h2>Trusted by communities, partners, and donors alike.</h2>
+					<h2>Trusted by leading enterprises across Africa.</h2>
 				</div>
 				<div class="audience-grid">
 					{site.audiences.map((audience) => (
@@ -79,8 +79,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="programs-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Our Programs</p>
-					<h2>Addressing the challenges communities face every day.</h2>
+					<p class="eyebrow">Our Services</p>
+					<h2>Complete solutions for industrial operations.</h2>
 				</div>
 				<div class="program-grid">
 					{site.programs.map((program) => (
@@ -106,8 +106,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="gallery-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Our Work in Action</p>
-					<h2>Real communities, real impact.</h2>
+					<p class="eyebrow">Our Expertise in Action</p>
+					<h2>Enterprise-scale solutions delivered.</h2>
 				</div>
 				<div class="gallery-grid">
 					{site.gallery.map((item, index) => (
@@ -173,18 +173,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<!-- CTA / Get Involved -->
+		<!-- CTA / Get Started -->
 		<section class="cta-section">
 			<div class="cta-inner section">
 				<div class="cta-content">
-					<p class="eyebrow">Get Involved</p>
-					<h2>Join us in building stronger futures for African communities.</h2>
-					<p>Whether you are a donor, partner, or volunteer, there is a place for you in this work. Together we can reach more children, strengthen more families, and create lasting change.</p>
+					<p class="eyebrow">Ready to Get Started?</p>
+					<h2>Let us help you find the right industrial solutions.</h2>
+						<p>Whether you need equipment quotes, technical consultations, or integrated system design, our team delivers enterprise-grade expertise and professional support.</p>
 				</div>
 				<div class="cta-actions">
-					<a class="button button-primary" href={`${base}/donate`}>Make a Donation</a>
-					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Partner With Us</a>
-					<a class="button button-secondary" href={`${base}/contact`}>Contact Us</a>
+					<a class="button button-primary" href={`${base}/contact`}>Request Quote</a>
+					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Schedule Consultation</a>
+					<a class="button button-secondary" href={`${base}/programs`}>View Services</a>
 				</div>
 			</div>
 		</section>

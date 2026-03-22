@@ -1,5 +1,5 @@
 {
-  "name": "alternative12-site",
+  "name": "copakgt-website",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -16,6 +16,6 @@
     "astro": "^6.0.8"
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.3.0"
   }
 }
