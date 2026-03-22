@@ -86,16 +86,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				</div>
 			</section>
 
-			<!-- CTA -->
-			<section class="cta-section">
-				<div class="section">
-					<div class="cta-panel">
-						<h2>Help us reach more children.</h2>
-						<p>Your support directly funds inclusive education, disability services, and protection for the most vulnerable children across Africa.</p>
-						<a href={`${base}/donate`} class="button button-primary">Donate Now</a>
-					</div>
-				</div>
-			</section>
+
 		</main>
 	</SiteShell>
 </Layout>
@@ -305,31 +296,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		line-height: 1.65;
 		font-size: 0.95rem;
 		margin: 0;
-	}
-
-	.cta-section {
-		padding: 0 0 5rem;
-	}
-
-	.cta-panel {
-		background: var(--bg-dark);
-		color: var(--text-inverse);
-		padding: 3.5rem;
-		border-radius: var(--radius-lg);
-		text-align: center;
-	}
-
-	.cta-panel h2 {
-		color: #fff;
-		font-size: clamp(1.6rem, 3vw, 2.2rem);
-		margin-bottom: 0.75rem;
-	}
-
-	.cta-panel p {
-		color: rgba(255, 255, 255, 0.75);
-		max-width: 520px;
-		margin: 0 auto 1.5rem;
-		line-height: 1.65;
 	}
 
 	@media (max-width: 960px) {
