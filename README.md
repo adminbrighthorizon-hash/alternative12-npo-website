@@ -1,4 +1,4 @@
-# Alternative 12 Website (Astro)
+# COPAK GT Website (Astro)
 
 ## GitHub Pages Rendering Issue: Problem Statement and Resolution
 
@@ -12,12 +12,12 @@ Common symptoms in production:
 
 ### Context
 - Local: `http://localhost:4321/` (works as expected)
-- GitHub Pages: `https://adminbrighthorizon-hash.github.io/alternative12-npo-website/` (can appear visually broken if paths are not base-aware)
+- GitHub Pages: `https://adminbrighthorizon-hash.github.io/copakgt-website/` (can appear visually broken if paths are not base-aware)
 
 ### Root Cause
 GitHub Pages serves the site from a subdirectory:
 
-`/alternative12-npo-website/`
+`/copakgt-website/`
 
 If the app uses absolute root paths like `/image.png`, `/styles.css`, or `/about`, those paths resolve from `/` instead of the project subdirectory, causing failed asset and route resolution.
 
@@ -28,7 +28,7 @@ Use base-aware paths via:
 
 This project is configured for GitHub Pages in `astro.config.mjs`:
 - `site: 'https://adminbrighthorizon-hash.github.io'`
-- `base: '/alternative12-npo-website'`
+- `base: '/copakgt-website'`
 
 ## Step-by-step Fix Pattern
 
@@ -98,7 +98,7 @@ npm run preview
 
 Open:
 
-`http://localhost:4321/alternative12-npo-website/`
+`http://localhost:4321/copakgt-website/`
 
 Confirm:
 - Styling is applied
@@ -113,7 +113,7 @@ npm run deploy
 ### 9) Verify production deployment
 Open:
 
-`https://adminbrighthorizon-hash.github.io/alternative12-npo-website/`
+`https://adminbrighthorizon-hash.github.io/copakgt-website/`
 
 Confirm:
 - Layout is correct
@@ -124,3 +124,27 @@ Confirm:
 - Avoid hardcoded root paths (`/`)
 - Always use `import.meta.env.BASE_URL` for internal assets/routes
 - Centralize base-path handling in layouts/components where possible
+
+## GitHub Actions CI/CD
+
+### Branch behavior
+- Push to `dev` runs CI build automatically via `.github/workflows/dev-ci.yml`
+- Push to `main` also deploys to GitHub Pages via `.github/workflows/deploy-github-pages.yml`
+
+### GitHub Pages setting required
+In your GitHub repository:
+- Go to **Settings → Pages**
+- Set **Source** to **GitHub Actions**
+
+## Contact Form Server Email Delivery
+
+The contact form posts to `/api/contact` when a backend endpoint is available and falls back to opening the visitor's email client on static hosts like GitHub Pages.
+
+### Required Cloudflare environment variables (Pages project)
+- `RESEND_API_KEY`
+- `CONTACT_TO_EMAIL` (optional, defaults to `info@copak.com`)
+
+### Notes
+- No SMTP credentials are exposed in browser code.
+- Current sender is `onboarding@resend.dev` for initial setup.
+- For production branding, verify your domain in Resend and replace the sender in `functions/api/contact.ts`.

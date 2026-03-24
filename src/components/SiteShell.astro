@@ -1,4 +1,5 @@
 ---
+import IndustrialMotionBackground from './IndustrialMotionBackground.astro';
 import { site } from '../data/site';
 
 interface Props {
@@ -11,12 +12,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div class="site-shell">
-	<div class="floating-objects" aria-hidden="true">
-		<span class="orb orb-1"></span>
-		<span class="orb orb-2"></span>
-		<span class="orb orb-3"></span>
-	</div>
-
+	<IndustrialMotionBackground />
 	<header class="site-header">
 		<div class="header-inner section">
 			<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
@@ -27,13 +23,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<span class="hamburger"></span>
 			</button>
 
-			<nav class="nav-links" aria-label="Primary" style="display: flex; gap: 1.5rem;">
+			<nav class="nav-links" aria-label="Primary">
 				{site.nav.map((item) => (
-					<a
-						class={item.href === activePath ? 'active' : undefined}
-						href={`${base}${item.href}`}
-						style="color: #ff6600; font-weight: bold;"
-					>
+					<a class={item.href === activePath ? 'active' : undefined} href={`${base}${item.href}`}>
 						{item.label}
 					</a>
 				))}
@@ -47,10 +39,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<div class="footer-inner section">
 			<div class="footer-grid">
 				<div class="footer-brand">
-					<a class="brand-lockup" href={`${base}/`} aria-label={site.name}>
+					<a class="brand-lockup footer-brand-lockup" href={`${base}/`} aria-label={site.name}>
 						<img class="brand-logo" src={`${base}/favicon.png`} alt={site.name} loading="lazy" decoding="async" />
 					</a>
-					<p class="footer-mission">{site.tagline}</p>
+					<p class="footer-mission">{site.subheadline}</p>
 				</div>
 
 				<div class="footer-col">
@@ -63,10 +55,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				</div>
 
 				<div class="footer-col">
-					<h4>Programs</h4>
+					<h4>Core Values</h4>
 					<ul>
-						{site.programs.map((p) => (
-							<li><a href={`${base}/programs`}>{p.title}</a></li>
+						{site.values.map((v) => (
+							<li>{v.title}</li>
 						))}
 					</ul>
 				</div>
@@ -74,19 +66,20 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<div class="footer-col">
 					<h4>Contact</h4>
 					<ul>
-						<li><a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a></li>
-						<li><a href={`mailto:${site.contacts.partnerships}`}>{site.contacts.partnerships}</a></li>
-						<li>{site.contacts.phone}</li>
+						<li><a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a></li>
+						{site.contacts.phones.map((phone) => (
+							<li>{phone}</li>
+						))}
 						<li>{site.contacts.address}</li>
 					</ul>
 				</div>
 			</div>
 
 			<div class="footer-bottom">
-				<p>&copy; {currentYear} {site.name}. All rights reserved.</p>
+				<p>&copy; {currentYear} {site.name}. All rights reserved. | RCCM: {site.contacts.rccm}</p>
 				<div class="footer-legal">
-					<a href={`${base}/privacy`}>Privacy Policy</a>
-					<a href={`${base}/terms`}>Terms of Use</a>
+					<span>ID NAT: {site.contacts.idNat}</span>
+					<span>ARSP: {site.contacts.arsp}</span>
 				</div>
 			</div>
 		</div>
@@ -106,26 +99,19 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 </script>
 
 <style>
-	/* ─── Design tokens ─── */
 	:global(:root) {
-		--primary: #1a1a1a;
-		--primary-light: #333333;
-		--accent: #ff8c42;
-		--accent-warm: #ff6b35;
-		--bg: #fafaf8;
-		--bg-dark: #1a1a1a;
-		--surface: #ffffff;
-		--surface-glass: rgba(255, 255, 255, 0.82);
-		--text: #1a1a1a;
-		--text-light: #555555;
-		--text-inverse: #f0f0ec;
-		--border: rgba(0, 0, 0, 0.08);
-		--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-		--shadow-md: 0 8px 30px rgba(0, 0, 0, 0.08);
-		--shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
-		--radius-sm: 0.5rem;
+		--bg: #0f1113;
+		--surface: #171a1e;
+		--surface-soft: #1f2429;
+		--border: #2a3138;
+		--text: #f8f5ef;
+		--muted: #c7b9a4;
+		--accent: #e25a00;
+		--accent-soft: #f08a2a;
+		--max: 1160px;
+		--radius-sm: 0.7rem;
 		--radius-md: 1rem;
-		--radius-lg: 1.5rem;
+		--radius-lg: 1.4rem;
 	}
 
 	:global(*) {
@@ -135,7 +121,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	:global(body) {
 		font-family: 'Inter', system-ui, -apple-system, sans-serif;
 		color: var(--text);
-		background: var(--bg);
+		background:
+			radial-gradient(circle at 85% -10%, rgba(255, 106, 0, 0.2), transparent 36%),
+			radial-gradient(circle at 5% 20%, rgba(255, 157, 58, 0.14), transparent 36%),
+			var(--bg);
 		line-height: 1.6;
 		margin: 0;
 	}
@@ -155,20 +144,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	:global(.section) {
-		position: relative;
-		z-index: 1;
-		width: min(1200px, calc(100% - 3rem));
+		width: min(var(--max), calc(100% - 3rem));
 		margin: 0 auto;
 	}
 
-	:global(.eyebrow) {
-		margin: 0 0 0.75rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: var(--primary-light);
-		font-family: 'Inter', system-ui, sans-serif;
+	:global(.panel) {
+		background: linear-gradient(180deg, var(--surface) 0%, #13161a 100%);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
 	}
 
 	:global(.section-heading) {
@@ -239,103 +222,38 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		color: #fff;
 	}
 
-	/* ─── Shell layout ─── */
 	.site-shell {
-		position: relative;
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		overflow: hidden;
+		position: relative;
+		isolation: isolate;
 	}
 
-	.floating-objects {
-		position: fixed;
-		inset: 0;
+	.site-shell > :global(.industrial-bg) {
 		z-index: 0;
-		pointer-events: none;
-		overflow: hidden;
 	}
 
-	.orb {
-		position: absolute;
-		border-radius: 9999px;
-		filter: blur(1px);
-		opacity: 0.22;
-		will-change: transform;
+	.site-shell > :not(:global(.industrial-bg)) {
+		position: relative;
+		z-index: 1;
 	}
 
-	.orb-1 {
-		width: 280px;
-		height: 280px;
-		top: 12%;
-		left: -80px;
-		background: radial-gradient(circle at 30% 30%, var(--accent), transparent 70%);
-		animation: drift-1 18s ease-in-out infinite;
-	}
-
-	.orb-2 {
-		width: 220px;
-		height: 220px;
-		top: 56%;
-		right: -60px;
-		background: radial-gradient(circle at 30% 30%, var(--primary-light), transparent 70%);
-		animation: drift-2 20s ease-in-out infinite;
-	}
-
-	.orb-3 {
-		width: 180px;
-		height: 180px;
-		bottom: 8%;
-		left: 28%;
-		background: radial-gradient(circle at 30% 30%, var(--accent-warm), transparent 70%);
-		animation: drift-3 16s ease-in-out infinite;
-	}
-
-	@keyframes drift-1 {
-		0%,
-		100% {
-			transform: translate3d(0, 0, 0) scale(1);
-		}
-		50% {
-			transform: translate3d(70px, -30px, 0) scale(1.08);
-		}
-	}
-
-	@keyframes drift-2 {
-		0%,
-		100% {
-			transform: translate3d(0, 0, 0) scale(1);
-		}
-		50% {
-			transform: translate3d(-80px, 24px, 0) scale(1.06);
-		}
-	}
-
-	@keyframes drift-3 {
-		0%,
-		100% {
-			transform: translate3d(0, 0, 0) scale(1);
-		}
-		50% {
-			transform: translate3d(45px, -40px, 0) scale(1.05);
-		}
-	}
-
-	/* ─── Header ─── */
 	.site-header {
 		position: sticky;
 		top: 0;
-		z-index: 100;
-		background: rgba(250, 250, 248, 0.92);
-		backdrop-filter: blur(12px);
+		z-index: 40;
+		background: rgba(15, 17, 19, 0.88);
+		backdrop-filter: blur(10px);
 		border-bottom: 1px solid var(--border);
 	}
 
 	.header-inner {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		padding: 1rem 0;
+		justify-content: space-between;
+		gap: 0.7rem;
+		padding: 0.52rem 0;
 	}
 
 	.brand-lockup {
@@ -345,16 +263,27 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.brand-logo {
-		display: flex;
-		width: clamp(100px, 13vw, 170px);
+		width: clamp(150px, 18vw, 250px);
 		height: auto;
+		max-height: 56px;
+		object-fit: contain;
 	}
 
-	.brand-name {
-		font-family: 'Playfair Display', Georgia, serif;
-		font-weight: 700;
-		font-size: 1.25rem;
-		color: var(--primary);
+	.brand-copy {
+		display: none;
+	}
+
+	.brand-copy strong {
+		font-size: 0.92rem;
+		letter-spacing: 0.04em;
+		color: var(--text);
+	}
+
+	.brand-copy span {
+		font-size: 0.7rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted);
 	}
 
 	.mobile-toggle {
@@ -398,77 +327,69 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
+		gap: 0.2rem;
 	}
 
 	.nav-links a {
 		text-decoration: none;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		font-weight: 500;
-		color: var(--text-light);
-		padding: 0.5rem 0.85rem;
+		color: var(--muted);
+		padding: 0.36rem 0.62rem;
 		border-radius: var(--radius-sm);
 		transition: all 0.2s ease;
 	}
 
 	.nav-links a:hover {
 		color: var(--text);
-		background: rgba(0, 0, 0, 0.04);
+		background: rgba(255, 106, 0, 0.1);
 	}
 
 	.nav-links a.active {
-		color: var(--primary);
+		color: #fff;
 		font-weight: 600;
+		background: linear-gradient(135deg, var(--accent), var(--accent-soft));
 	}
 
-	.nav-cta {
-		background: var(--primary) !important;
-		color: #fff !important;
-		font-weight: 600 !important;
-		padding: 0.5rem 1.25rem !important;
-		margin-left: 0.5rem;
-	}
-
-	.nav-cta:hover {
-		background: var(--primary-light) !important;
-	}
-
-	/* ─── Footer ─── */
 	.site-footer {
-		background: var(--bg-dark);
-		color: var(--text-inverse);
+		background: #101316;
 		margin-top: auto;
-		padding: 4rem 0 0;
+		border-top: 1px solid var(--border);
+		padding: 2.1rem 0 0;
 	}
 
 	.footer-grid {
 		display: grid;
 		grid-template-columns: 2fr 1fr 1fr 1.5fr;
-		gap: 3rem;
-		padding-bottom: 3rem;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+		gap: 1.4rem;
+		padding-bottom: 1.35rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.footer-brand-lockup {
+		align-items: flex-start;
 	}
 
 	.footer-brand .brand-logo {
-		width: clamp(110px, 14vw, 180px);
+		width: clamp(112px, 14vw, 170px);
 	}
 
 	.footer-mission {
-		margin: 1rem 0 0;
-		font-size: 0.95rem;
-		color: rgba(255, 255, 255, 0.7);
-		line-height: 1.7;
-		max-width: 28ch;
+		margin: 0.7rem 0 0;
+		font-size: 0.84rem;
+		color: #b9a993;
+		line-height: 1.5;
+		max-width: 33ch;
 	}
 
 	.footer-col h4 {
 		font-family: 'Inter', system-ui, sans-serif;
-		font-size: 0.85rem;
+		font-size: 0.74rem;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
-		margin-bottom: 1.25rem;
-		color: rgba(255, 255, 255, 0.5);
+		margin-bottom: 0.7rem;
+		color: #9b8a74;
 	}
 
 	.footer-col ul {
@@ -478,10 +399,10 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.footer-col li {
-		margin-bottom: 0.65rem;
-		font-size: 0.9rem;
-		color: rgba(255, 255, 255, 0.75);
-		line-height: 1.5;
+		margin-bottom: 0.4rem;
+		font-size: 0.82rem;
+		color: #d9d1c8;
+		line-height: 1.45;
 	}
 
 	.footer-col a {
@@ -497,9 +418,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 1.5rem 0;
-		font-size: 0.85rem;
-		color: rgba(255, 255, 255, 0.45);
+		padding: 0.9rem 0 1.1rem;
+		font-size: 0.76rem;
+		color: #a79279;
 	}
 
 	.footer-bottom p {
@@ -508,20 +429,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	.footer-legal {
 		display: flex;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 
-	.footer-legal a {
-		text-decoration: none;
-		color: rgba(255, 255, 255, 0.45);
-		transition: color 0.2s ease;
-	}
-
-	.footer-legal a:hover {
-		color: rgba(255, 255, 255, 0.8);
-	}
-
-	/* ─── Responsive ─── */
 	@media (max-width: 900px) {
 		.mobile-toggle {
 			display: block;
@@ -534,8 +444,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			left: 0;
 			right: 0;
 			flex-direction: column;
-			background: rgba(250, 250, 248, 0.98);
-			backdrop-filter: blur(12px);
+			background: rgba(16, 19, 22, 0.96);
+			backdrop-filter: blur(8px);
 			border-bottom: 1px solid var(--border);
 			padding: 1rem;
 			gap: 0;
@@ -550,12 +460,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			width: 100%;
 		}
 
-		.nav-cta {
-			margin-left: 0 !important;
-			margin-top: 0.5rem;
-			text-align: center;
-		}
-
 		.footer-grid {
 			grid-template-columns: 1fr 1fr;
 			gap: 2rem;
@@ -568,11 +472,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	@media (max-width: 600px) {
 		:global(.section) {
-			width: min(100% - 1.5rem, 1200px);
+			width: min(100% - 1.5rem, var(--max));
 		}
 
-		.brand-logo {
-			width: 120px;
+		.brand-logo,
+		.footer-brand .brand-logo {
+			width: min(160px, 52vw);
 		}
 
 		.footer-grid {
@@ -586,9 +491,4 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		}
 	}
 
-	@media (prefers-reduced-motion: reduce) {
-		.orb {
-			animation: none;
-		}
-	}
 </style>

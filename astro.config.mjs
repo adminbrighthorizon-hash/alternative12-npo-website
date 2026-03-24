@@ -1,9 +1,9 @@
 import { defineConfig } from 'astro/config';
 
-const BASE = process.env.ASTRO_BASE || '/';
-const SITE = process.env.ASTRO_SITE || 'https://your-cloudflare-domain.pages.dev';
+const PROD_BASE = process.env.ASTRO_BASE || '/copakgt-website';
+const SITE = process.env.ASTRO_SITE || 'https://adminbrighthorizon-hash.github.io';
 
-export default defineConfig({
-  site: SITE,
-  base: BASE,
-});
+export default defineConfig(({ command }) => ({
+	site: SITE,
+	base: command === 'dev' ? '/' : PROD_BASE,
+}));

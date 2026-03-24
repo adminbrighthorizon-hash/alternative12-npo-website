@@ -1,35 +1,46 @@
 ---
-// Our Strength page for COPAK GENERAL TRADING
+import Layout from '../layouts/Layout.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<html lang="en">
-  <head>
-    <title>Our Strength | COPAK GENERAL TRADING</title>
-    <meta name="description" content="Discover the strengths and unique value propositions of COPAK GENERAL TRADING." />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-  </head>
-  <body>
-    <header>
-      <img src="/favicon.png" alt="COPAK Logo" style="height:60px; margin:1rem 0;" />
-      <h1>Our Strength</h1>
-      <nav>
-        <a href="/">Home</a> |
-        <a href="/about">About Us</a> |
-        <a href="/services">Services</a> |
-        <a href="/our-strength">Our Strength</a> |
-        <a href="/contact">Contact</a>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Why Choose COPAK?</h2>
-        <ul>
-          <li>Field expertise and technical precision</li>
-          <li>Reliable execution and responsive support</li>
-          <li>Commitment to safety and performance</li>
-          <li>Trusted compliance and certifications</li>
-        </ul>
-      </section>
-    </main>
-  </body>
-</html>
+<Layout title={`Our Strength | ${site.name}`} description="Legacy route maintained for strengths page.">
+	<SiteShell activePath="/impact">
+		<main class="section page">
+			<section class="panel card">
+				<p class="eyebrow">Route Compatibility</p>
+				<h1>Our Strength</h1>
+				<p>This route is preserved for existing links. Access our current strengths and partnership profile below.</p>
+				<a class="btn" href={`${base}/impact`}>Open Updated Strength Profile</a>
+			</section>
+		</main>
+	</SiteShell>
+</Layout>
+
+<style>
+	.page {
+		padding: 2rem 0;
+	}
+
+	.card {
+		padding: 1.2rem;
+	}
+
+	.card p {
+		color: var(--muted);
+	}
+
+	.btn {
+		display: inline-block;
+		text-decoration: none;
+		padding: 0.58rem 0.95rem;
+		border-radius: 0.65rem;
+		font-size: 0.88rem;
+		font-weight: 600;
+		background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+		color: #fff;
+		margin-top: 0.7rem;
+	}
+</style>
