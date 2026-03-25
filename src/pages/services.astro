@@ -4,35 +4,45 @@ import SiteShell from '../components/SiteShell.astro';
 import { site } from '../data/site';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const servicesBackground = `${base}/photos/company-profile/products-services-bg.jpg`;
-const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent('Quotation Request - COPAK GENERAL TRADING')}`;
 ---
 
-<Layout title={`Products & Services | ${site.name}`} description="Detailed overview of products and services offered by COPAK GENERAL TRADING.">
+
+<Layout title={`Services | ${site.name}`} description="Legacy route maintained for program and support service access.">
 	<SiteShell activePath="/services">
 		<main class="section services-page">
-			<section class="panel intro" style={`--services-bg: url('${servicesBackground}')`}>
-				<p class="eyebrow">Products & Services</p>
-				<h1>Comprehensive Industrial Solutions</h1>
+			<section class="panel intro">
+				<p class="eyebrow">Legacy Route</p>
+				<h1>Services Now Live Under Our Programs</h1>
 				<p>
-					From laboratory and instrumentation to electrical, pumping systems, and protective equipment, we provide
-					integrated support designed for operational continuity and safety.
+					This page is preserved for older links. Alternative 12 now presents its work through program areas focused on
+					inclusive education, rehabilitation, child protection, disability inclusion, and family support in DR Congo and
+					South Africa.
 				</p>
 				<div class="intro-actions">
-					<a class="quote-button" href={quoteMailto}>Request a Quotation</a>
-					<p class="quote-note">Send your requirements directly to our commercial team for pricing and availability.</p>
+					<a class="quote-button" href={`${base}/programs`}>View Our Programs</a>
+					<a class="secondary-link" href={`${base}/contact`}>Contact Our Team</a>
 				</div>
 			</section>
 
 			<section class="cards section-gap">
-				{site.services.map((group) => (
+				{site.programs.map((program) => (
 					<article class="panel group-card">
-						<h2>{group.category}</h2>
-						<ul>
-							{group.items.map((item) => <li>{item}</li>)}
-						</ul>
+						<span class="program-id">{program.id}</span>
+						<h2>{program.title}</h2>
+						<p>{program.description}</p>
 					</article>
 				))}
+			</section>
+
+			<section class="panel support-panel section-gap">
+				<p class="eyebrow">Why Support This Work</p>
+				<h2>Donor-backed, locally rooted, and focused on the most vulnerable children.</h2>
+				<ul>
+					{site.trustPoints.map((point) => <li>{point}</li>)}
+				</ul>
+				<p class="support-contact">
+					Email <a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a> to discuss partnerships or support.
+				</p>
 			</section>
 		</main>
 	</SiteShell>
@@ -44,25 +54,7 @@ const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent(
 	}
 
 	.intro {
-		position: relative;
-		overflow: hidden;
-		padding: 1.3rem;
-	}
-
-	.intro::before {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background:
-			linear-gradient(100deg, rgba(15, 17, 19, 0.9) 0%, rgba(15, 17, 19, 0.72) 48%, rgba(15, 17, 19, 0.88) 100%),
-			var(--services-bg) center/cover no-repeat;
-		opacity: 0.94;
-		z-index: 0;
-	}
-
-	.intro > * {
-		position: relative;
-		z-index: 1;
+		padding: 1.35rem;
 	}
 
 	.intro h1 {
@@ -84,43 +76,43 @@ const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent(
 		justify-content: center;
 		padding: 0.78rem 1.18rem;
 		border-radius: 999px;
-		background: linear-gradient(135deg, #d95400, #e77c1f);
-		color: #1a1208;
+		background: linear-gradient(135deg, #1d4b35, #2f6b4c);
+		color: #f8fbf5;
 		font-weight: 800;
 		font-size: 0.88rem;
 		letter-spacing: 0.02em;
 		text-decoration: none;
-		box-shadow: 0 14px 30px rgba(212, 84, 0, 0.3);
+		box-shadow: 0 14px 30px rgba(29, 75, 53, 0.22);
 		transition: transform 180ms ease, box-shadow 180ms ease;
 	}
 
 	.quote-button:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 18px 34px rgba(212, 84, 0, 0.38);
+		box-shadow: 0 18px 34px rgba(29, 75, 53, 0.28);
 	}
 
-	.intro::before {
-		animation: introPan 18s ease-in-out infinite alternate;
-		transform-origin: center;
+	.secondary-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.78rem 1.05rem;
+		border-radius: 999px;
+		text-decoration: none;
+		font-weight: 700;
+		color: var(--primary);
+		background: rgba(29, 75, 53, 0.08);
+		border: 1px solid rgba(29, 75, 53, 0.14);
 	}
 
-	@keyframes introPan {
-		0% {
-			transform: scale(1.05) translate3d(0, 0, 0);
-		}
-		100% {
-			transform: scale(1.12) translate3d(-2%, -1%, 0);
-		}
-	}
-
-	.quote-note {
-		margin: 0;
-		max-width: 34rem;
+	.secondary-link:hover {
+		background: rgba(29, 75, 53, 0.14);
 	}
 
 	.intro p,
-	.group-card li {
-		color: var(--muted);
+	.group-card p,
+	.support-contact {
+		margin: 0;
+		color: var(--text-light);
 	}
 
 	.section-gap {
@@ -137,16 +129,36 @@ const quoteMailto = `mailto:${site.contacts.email}?subject=${encodeURIComponent(
 		padding: 1rem;
 	}
 
+	.program-id {
+		display: inline-block;
+		margin-bottom: 0.45rem;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--primary-light);
+	}
+
 	.group-card h2 {
 		font-size: 1.12rem;
 		margin-bottom: 0.55rem;
 	}
 
-	.group-card ul {
+	.support-panel {
+		padding: 1.2rem;
+	}
+
+	.support-panel ul {
 		margin: 0;
 		padding-left: 1.1rem;
 		display: grid;
 		gap: 0.4rem;
+		color: var(--text-light);
+	}
+
+	.support-panel h2 {
+		font-size: clamp(1.45rem, 3vw, 2rem);
+		margin: 0.35rem 0 0.9rem;
 	}
 
 	@media (max-width: 980px) {

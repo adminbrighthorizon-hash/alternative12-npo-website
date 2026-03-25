@@ -267,15 +267,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.hero-btn {
-		background: #fff !important;
-		color: var(--primary) !important;
+		background: var(--accent) !important;
+		color: #0e1a13 !important;
 		font-weight: 700 !important;
 		padding: 1rem 2rem !important;
 	}
 
 	.hero-btn:hover {
-		background: var(--accent) !important;
-		color: #fff !important;
+		background: #f0c55a !important;
+		color: #0e1a13 !important;
 	}
 
 	.hero-btn-outline {
@@ -290,12 +290,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	/* ─── Banner ─── */
 	.banner-strip {
-		background: linear-gradient(135deg, rgba(242, 248, 239, 0.98) 0%, rgba(255, 246, 231, 0.98) 55%, rgba(249, 239, 214, 0.98) 100%);
-		color: var(--primary);
+		background: linear-gradient(135deg, rgba(24, 46, 34, 0.98) 0%, rgba(28, 53, 40, 0.98) 55%, rgba(22, 42, 31, 0.98) 100%);
+		color: var(--text);
 		padding: 1.1rem 0;
 		overflow: hidden;
-		border-top: 1px solid rgba(36, 86, 64, 0.08);
-		border-bottom: 1px solid rgba(212, 164, 55, 0.18);
+		border-top: 1px solid rgba(255, 255, 255, 0.06);
+		border-bottom: 1px solid rgba(228, 184, 74, 0.15);
 	}
 
 	.banner-frame {
@@ -305,9 +305,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		gap: 0.9rem;
 		padding: 0.55rem;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.52);
-		border: 1px solid rgba(36, 86, 64, 0.1);
-		box-shadow: 0 12px 30px rgba(24, 66, 47, 0.08);
+		background: rgba(255, 255, 255, 0.07);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 		backdrop-filter: blur(10px);
 	}
 
@@ -334,8 +334,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		display: flex;
 		align-items: center;
 		border-radius: 999px;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 251, 242, 0.94) 100%);
-		border: 1px solid rgba(212, 164, 55, 0.18);
+		background: linear-gradient(135deg, rgba(28, 53, 40, 0.9) 0%, rgba(24, 46, 34, 0.85) 100%);
+		border: 1px solid rgba(255, 255, 255, 0.1);
 		padding-inline: 1rem;
 	}
 
@@ -352,12 +352,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	.banner-marquee::before {
 		left: 0;
-		background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0) 100%);
+		background: linear-gradient(90deg, rgba(28, 53, 40, 0.98) 0%, rgba(28, 53, 40, 0) 100%);
 	}
 
 	.banner-marquee::after {
 		right: 0;
-		background: linear-gradient(270deg, rgba(255, 251, 242, 0.98) 0%, rgba(255, 251, 242, 0) 100%);
+		background: linear-gradient(270deg, rgba(24, 46, 34, 0.98) 0%, rgba(24, 46, 34, 0) 100%);
 	}
 
 	.banner-message {
@@ -367,11 +367,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		align-items: center;
 		padding: 0.82rem 1.35rem;
 		border-radius: 999px;
-		background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 249, 236, 0.96) 100%);
-		border: 1px solid rgba(212, 164, 55, 0.28);
-		box-shadow: 0 14px 28px rgba(33, 78, 56, 0.12);
-		color: #1d4b35;
-		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+		background: linear-gradient(135deg, rgba(28, 53, 40, 0.95) 0%, rgba(24, 46, 34, 0.92) 100%);
+		border: 1px solid rgba(228, 184, 74, 0.22);
+		box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+		color: var(--text);
+		text-shadow: none;
 		animation: banner-glide 28s linear 2.4s infinite;
 		will-change: transform;
 	}
@@ -740,9 +740,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	.story-card {
 		border-radius: var(--radius-md);
-		background: rgba(43, 107, 75, 0.12);
 		border: 1px solid var(--border);
-		background: var(--bg);
+		background: var(--bg-elevated, rgba(255, 255, 255, 0.04));
 		transition: all 0.25s ease;
 	}
 
@@ -823,13 +822,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.cta-actions .button-primary {
-		background: #fff;
-		color: var(--primary);
+		background: linear-gradient(135deg, #ef8a1f 0%, #f4b63a 45%, #53a15f 100%);
+		color: #fff;
+		font-weight: 700;
+		box-shadow: 0 14px 28px rgba(211, 137, 28, 0.26);
 	}
 
 	.cta-actions .button-primary:hover {
-		background: var(--accent);
+		background: linear-gradient(135deg, #99520b 0%, #c47f17 45%, #2f6b3a 100%);
 		color: #fff;
+		box-shadow: 0 16px 30px rgba(113, 69, 13, 0.3);
 	}
 
 	.cta-actions .button-secondary {

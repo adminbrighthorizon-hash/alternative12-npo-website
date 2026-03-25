@@ -1,4 +1,4 @@
-# COPAK GT Website (Astro)
+# Alternative 12 Website (Astro)
 
 ## GitHub Pages Rendering Issue: Problem Statement and Resolution
 
@@ -12,12 +12,12 @@ Common symptoms in production:
 
 ### Context
 - Local: `http://localhost:4321/` (works as expected)
-- GitHub Pages: `https://adminbrighthorizon-hash.github.io/copakgt-website/` (can appear visually broken if paths are not base-aware)
+- GitHub Pages: `https://adminbrighthorizon-hash.github.io/alternative12-npo-website/` (can appear visually broken if paths are not base-aware)
 
 ### Root Cause
 GitHub Pages serves the site from a subdirectory:
 
-`/copakgt-website/`
+`/alternative12-npo-website/`
 
 If the app uses absolute root paths like `/image.png`, `/styles.css`, or `/about`, those paths resolve from `/` instead of the project subdirectory, causing failed asset and route resolution.
 
@@ -28,7 +28,7 @@ Use base-aware paths via:
 
 This project is configured for GitHub Pages in `astro.config.mjs`:
 - `site: 'https://adminbrighthorizon-hash.github.io'`
-- `base: '/copakgt-website'`
+- `base: '/alternative12-npo-website'`
 
 ## Step-by-step Fix Pattern
 
@@ -98,7 +98,7 @@ npm run preview
 
 Open:
 
-`http://localhost:4321/copakgt-website/`
+`http://localhost:4321/alternative12-npo-website/`
 
 Confirm:
 - Styling is applied
@@ -113,7 +113,7 @@ npm run deploy
 ### 9) Verify production deployment
 Open:
 
-`https://adminbrighthorizon-hash.github.io/copakgt-website/`
+`https://adminbrighthorizon-hash.github.io/alternative12-npo-website/`
 
 Confirm:
 - Layout is correct
@@ -142,7 +142,7 @@ The contact form posts to `/api/contact` when a backend endpoint is available an
 
 ### Required Cloudflare environment variables (Pages project)
 - `RESEND_API_KEY`
-- `CONTACT_TO_EMAIL` (optional, defaults to `info@copak.com`)
+- `CONTACT_TO_EMAIL` (optional, defaults to `info@alternative12.org`)
 
 ### Notes
 - No SMTP credentials are exposed in browser code.

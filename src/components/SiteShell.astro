@@ -47,6 +47,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 						<span>Kinshasa</span>
 						<span>Lubumbashi</span>
 						<span>Cape Town</span>
+						<span>Johannesburg</span>
 					</div>
 					<div class="footer-actions">
 						<a class="button button-primary footer-button" href={`${base}/donate`}>Donate Now</a>
@@ -125,21 +126,22 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 <style>
 	/* ─── Design tokens ─── */
 	:global(:root) {
-		--primary: #173f2d;
-		--primary-light: #245640;
-		--accent: #d4a437;
-		--accent-warm: #a96a22;
-		--bg: #fff8ed;
-		--bg-dark: #163727;
-		--surface: rgba(255, 255, 255, 0.74);
-		--surface-glass: rgba(255, 255, 255, 0.82);
-		--text: #1f2933;
-		--text-light: #52606d;
+		--primary: #4ead79;
+		--primary-light: #5ec28d;
+		--accent: #e4b84a;
+		--accent-warm: #c87f2a;
+		--bg: #182e22;
+		--bg-dark: #0f1f16;
+		--bg-elevated: #1f3d2d;
+		--surface: rgba(255, 255, 255, 0.07);
+		--surface-glass: rgba(255, 255, 255, 0.09);
+		--text: #e2ebe0;
+		--text-light: #9ab3a6;
 		--text-inverse: #f7f9f4;
-		--border: rgba(43, 107, 75, 0.16);
-		--shadow-sm: 0 2px 8px rgba(31, 74, 53, 0.08);
-		--shadow-md: 0 12px 30px rgba(31, 74, 53, 0.12);
-		--shadow-lg: 0 24px 60px rgba(31, 74, 53, 0.16);
+		--border: rgba(255, 255, 255, 0.1);
+		--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+		--shadow-md: 0 12px 30px rgba(0, 0, 0, 0.28);
+		--shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.35);
 		--radius-sm: 0.5rem;
 		--radius-md: 1rem;
 		--radius-lg: 1.5rem;
@@ -267,7 +269,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		min-height: 100vh;
 		display: flex;
 		flex-direction: column;
-		background: linear-gradient(180deg, rgba(255, 248, 237, 0.96) 0%, rgba(251, 241, 225, 0.92) 100%);
+		background: linear-gradient(180deg, #182e22 0%, #1c3528 50%, #182e22 100%);
 	}
 
 	/* ─── Header ─── */
@@ -276,7 +278,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		top: 0;
 		z-index: 100;
 		padding: 0.75rem 0 0.4rem;
-		background: linear-gradient(180deg, rgba(255, 248, 237, 0.94) 0%, rgba(255, 248, 237, 0.74) 100%);
+		background: linear-gradient(180deg, rgba(24, 46, 34, 0.95) 0%, rgba(24, 46, 34, 0.82) 100%);
 		backdrop-filter: blur(12px);
 	}
 
@@ -288,9 +290,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		position: relative;
 		width: calc(100% - 1.5rem);
 		border-radius: 1.35rem;
-		border: 1px solid rgba(23, 63, 45, 0.12);
-		background: linear-gradient(135deg, rgba(255, 251, 246, 0.98) 0%, rgba(243, 249, 239, 0.95) 100%);
-		box-shadow: 0 16px 34px rgba(31, 74, 53, 0.12);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+		background: linear-gradient(135deg, rgba(28, 53, 40, 0.95) 0%, rgba(24, 46, 34, 0.92) 100%);
+		box-shadow: 0 16px 34px rgba(0, 0, 0, 0.25);
 	}
 
 	.brand-lockup {
@@ -300,7 +302,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		text-decoration: none;
 		padding: 0.3rem 0.45rem 0.3rem 0.3rem;
 		border-radius: 999px;
-		background: rgba(255, 255, 255, 0.68);
+		background: rgba(255, 255, 255, 0.06);
 	}
 
 	.brand-mark {
@@ -316,7 +318,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		font-family: 'Playfair Display', Georgia, serif;
 		font-weight: 700;
 		font-size: 1.3rem;
-		color: var(--primary);
+		color: #e8eee4;
 	}
 
 	.mobile-toggle {
@@ -439,20 +441,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	}
 
 	.footer-kicker {
-		margin: 0 0 0.55rem;
-		font-size: 0.72rem;
-		font-weight: 700;
-		letter-spacing: 0.14em;
+		margin: 0 0 0.75rem;
+		font-size: 0.82rem;
+		font-weight: 800;
+		letter-spacing: 0.18em;
 		text-transform: uppercase;
-		color: rgba(244, 185, 66, 0.92);
+		color: var(--accent);
+		text-shadow: 0 0 24px rgba(228, 184, 74, 0.35);
+	}
+
+	.footer-brand .brand-lockup {
+		background: rgba(255, 255, 255, 0.06);
+		padding: 0.45rem 0.85rem 0.45rem 0.45rem;
+		border: 1px solid rgba(255, 255, 255, 0.08);
 	}
 
 	.footer-brand .brand-mark {
-		box-shadow: none;
+		width: 3rem;
+		height: 3rem;
+		box-shadow: 0 0 20px rgba(78, 173, 121, 0.25);
+		border-radius: var(--radius-sm);
 	}
 
 	.footer-brand .brand-name {
 		color: #fff;
+		font-size: 1.45rem;
+		letter-spacing: 0.01em;
 	}
 
 	.footer-mission {
@@ -660,11 +674,11 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			overflow-y: auto;
 			flex-direction: column;
 			z-index: 260;
-			background: rgba(255, 250, 244, 0.98);
+			background: rgba(24, 46, 34, 0.97);
 			backdrop-filter: blur(18px);
-			border: 1px solid rgba(23, 63, 45, 0.1);
+			border: 1px solid rgba(255, 255, 255, 0.1);
 			border-radius: 1.25rem;
-			box-shadow: 0 20px 48px rgba(31, 74, 53, 0.16);
+			box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
 			padding: 0.85rem;
 			gap: 0.55rem;
 			opacity: 0;

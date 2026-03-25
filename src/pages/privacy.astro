@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SiteShell from '../components/SiteShell.astro';
+import { site } from '../data/site';
+---
+
+<Layout title={`Privacy Policy | ${site.name}`} description="Privacy policy for the Alternative 12 website.">
+	<SiteShell activePath="/privacy">
+		<main class="section page">
+			<section class="panel content">
+				<h1>Privacy Policy</h1>
+				<p class="updated">Last updated: March 2026</p>
+
+				<h2>Who We Are</h2>
+				<p>
+					Alternative 12 is a donor-supported non-profit organisation working with communities in DR Congo and South
+					Africa. This website is operated to share information about our programs, accept donations, and enable
+					supporters to contact us.
+				</p>
+
+				<h2>Information We Collect</h2>
+				<p>When you use our contact form, we collect the information you provide — your name, email address, and message. We do not use tracking cookies or third-party analytics on this website.</p>
+
+				<h2>How We Use Your Information</h2>
+				<ul>
+					<li>To respond to enquiries submitted through the contact form</li>
+					<li>To process and acknowledge donations</li>
+					<li>To send updates about our programs if you opt in</li>
+				</ul>
+
+				<h2>Data Sharing</h2>
+				<p>We do not sell or share your personal information with third parties. Contact form submissions are delivered via Resend, a transactional email service, solely to our team.</p>
+
+				<h2>Data Retention</h2>
+				<p>We retain contact submissions only as long as needed to respond and maintain our supporter records. You may request deletion of your data at any time.</p>
+
+				<h2>Your Rights</h2>
+				<p>You have the right to access, correct, or delete any personal data we hold about you. Contact us at <a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a> to exercise these rights.</p>
+
+				<h2>Changes to This Policy</h2>
+				<p>We may update this policy from time to time. Any changes will be posted on this page with an updated date.</p>
+
+				<h2>Contact</h2>
+				<p>For privacy-related questions, email <a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a>.</p>
+			</section>
+		</main>
+	</SiteShell>
+</Layout>
+
+<style>
+	.page {
+		padding: 2rem 0;
+	}
+
+	.content {
+		padding: 1.5rem;
+		max-width: 48rem;
+		margin: 0 auto;
+	}
+
+	.content h1 {
+		font-family: var(--font-serif, 'Playfair Display', serif);
+		color: var(--primary, #173f2d);
+		margin-bottom: 0.25rem;
+	}
+
+	.updated {
+		color: var(--muted, #666);
+		font-size: 0.85rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.content h2 {
+		color: var(--primary, #173f2d);
+		font-size: 1.15rem;
+		margin-top: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.content p,
+	.content li {
+		color: var(--text, #333);
+		line-height: 1.7;
+	}
+
+	.content ul {
+		padding-left: 1.25rem;
+	}
+
+	.content a {
+		color: var(--accent, #d4a437);
+	}
+</style>

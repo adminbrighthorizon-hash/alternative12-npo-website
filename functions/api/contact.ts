@@ -52,7 +52,7 @@ export const onRequestPost = async ({ request, env }: FunctionContext) => {
     return json({ error: 'Missing required fields.' }, 400);
   }
 
-  const to = env.CONTACT_TO_EMAIL?.trim() || 'info@copak.com';
+  const to = env.CONTACT_TO_EMAIL?.trim() || 'info@alternative12.org';
   const text = [
     `Name: ${name}`,
     `Email: ${email}`,
@@ -69,7 +69,7 @@ export const onRequestPost = async ({ request, env }: FunctionContext) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      from: 'COPAK Website <onboarding@resend.dev>',
+      from: 'Alternative 12 Website <onboarding@resend.dev>',
       to: [to],
       reply_to: email,
       subject: `[Website] ${subject}`,
