@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 				<h1>{site.headline}</h1>
 				<p class="hero-sub">{site.subheadline}</p>
 				<div class="hero-actions">
-				<a class="button button-primary hero-btn" href={`${base}/contact`}>Request Quote</a>
+					<a class="button button-primary hero-btn" href={`${base}/donate`}>Donate Now</a>
 					<a class="button button-secondary hero-btn-outline" href={`${base}/about`}>Learn More</a>
 				</div>
 			</div>
@@ -26,7 +26,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<!-- Announcement banner -->
 		<section class="banner-strip">
 			<div class="section">
-				<p>{site.banner}</p>
+				<div class="banner-frame">
+					<span class="banner-label">Donor Impact</span>
+					<div class="banner-marquee">
+						<p class="banner-message">{site.banner}</p>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -62,7 +67,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			<div class="section">
 				<div class="section-heading">
 					<p class="eyebrow">Who We Serve</p>
-					<h2>Trusted by leading enterprises across Africa.</h2>
+					<h2>Trusted by communities, partners, and donors alike.</h2>
 				</div>
 				<div class="audience-grid">
 					{site.audiences.map((audience) => (
@@ -79,8 +84,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="programs-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Our Services</p>
-					<h2>Complete solutions for industrial operations.</h2>
+					<p class="eyebrow">Our Programs</p>
+					<h2>Addressing everyday challenges faced by kids, people with disabilities, and mothers surviving abuse.</h2>
 				</div>
 				<div class="program-grid">
 					{site.programs.map((program) => (
@@ -106,8 +111,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		<section class="gallery-section">
 			<div class="section">
 				<div class="section-heading">
-					<p class="eyebrow">Our Expertise in Action</p>
-					<h2>Enterprise-scale solutions delivered.</h2>
+					<p class="eyebrow">Our Work in Action</p>
+					<h2>Real communities, real impact.</h2>
 				</div>
 				<div class="gallery-grid">
 					{site.gallery.map((item, index) => (
@@ -173,18 +178,18 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 			</div>
 		</section>
 
-		<!-- CTA / Get Started -->
+		<!-- CTA / Get Involved -->
 		<section class="cta-section">
 			<div class="cta-inner section">
 				<div class="cta-content">
-					<p class="eyebrow">Ready to Get Started?</p>
-					<h2>Let us help you find the right industrial solutions.</h2>
-						<p>Whether you need equipment quotes, technical consultations, or integrated system design, our team delivers enterprise-grade expertise and professional support.</p>
+					<p class="eyebrow">Get Involved</p>
+					<h2>Join us in building stronger futures for African communities.</h2>
+					<p>Whether you are a donor, partner, or volunteer, there is a place for you in this work. Together we can reach more children, strengthen more families, and create lasting change.</p>
 				</div>
 				<div class="cta-actions">
-					<a class="button button-primary" href={`${base}/contact`}>Request Quote</a>
-					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Schedule Consultation</a>
-					<a class="button button-secondary" href={`${base}/programs`}>View Services</a>
+					<a class="button button-primary" href={`${base}/donate`}>Make a Donation</a>
+					<a class="button button-secondary" href={`mailto:${site.contacts.partnerships}`}>Partner With Us</a>
+					<a class="button button-secondary" href={`${base}/contact`}>Contact Us</a>
 				</div>
 			</div>
 		</section>
@@ -217,9 +222,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		inset: 0;
 		background: linear-gradient(
 			to right,
-			rgba(26, 58, 42, 0.88) 0%,
-			rgba(26, 58, 42, 0.65) 50%,
-			rgba(26, 58, 42, 0.3) 100%
+			rgba(31, 74, 53, 0.88) 0%,
+			rgba(31, 74, 53, 0.65) 50%,
+			rgba(31, 74, 53, 0.3) 100%
 		);
 	}
 
@@ -285,17 +290,109 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	/* ─── Banner ─── */
 	.banner-strip {
-		background: var(--primary);
-		color: #fff;
-		padding: 1rem 0;
-		text-align: center;
+		background: linear-gradient(135deg, rgba(242, 248, 239, 0.98) 0%, rgba(255, 246, 231, 0.98) 55%, rgba(249, 239, 214, 0.98) 100%);
+		color: var(--primary);
+		padding: 1.1rem 0;
+		overflow: hidden;
+		border-top: 1px solid rgba(36, 86, 64, 0.08);
+		border-bottom: 1px solid rgba(212, 164, 55, 0.18);
+	}
+
+	.banner-frame {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 0.9rem;
+		padding: 0.55rem;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.52);
+		border: 1px solid rgba(36, 86, 64, 0.1);
+		box-shadow: 0 12px 30px rgba(24, 66, 47, 0.08);
+		backdrop-filter: blur(10px);
+	}
+
+	.banner-label {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.82rem 1rem;
+		border-radius: 999px;
+		background: linear-gradient(135deg, #1d4b35 0%, #2b6b4b 100%);
+		color: #f8fbf5;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		white-space: nowrap;
+		box-shadow: 0 12px 22px rgba(29, 75, 53, 0.18);
+	}
+
+	.banner-marquee {
+		overflow: hidden;
+		position: relative;
+		min-height: 3.35rem;
+		display: flex;
+		align-items: center;
+		border-radius: 999px;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 251, 242, 0.94) 100%);
+		border: 1px solid rgba(212, 164, 55, 0.18);
+		padding-inline: 1rem;
+	}
+
+	.banner-marquee::before,
+	.banner-marquee::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 3rem;
+		pointer-events: none;
+		z-index: 2;
+	}
+
+	.banner-marquee::before {
+		left: 0;
+		background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0) 100%);
+	}
+
+	.banner-marquee::after {
+		right: 0;
+		background: linear-gradient(270deg, rgba(255, 251, 242, 0.98) 0%, rgba(255, 251, 242, 0) 100%);
+	}
+
+	.banner-message {
+		position: absolute;
+		left: 0;
+		display: inline-flex;
+		align-items: center;
+		padding: 0.82rem 1.35rem;
+		border-radius: 999px;
+		background: linear-gradient(135deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 249, 236, 0.96) 100%);
+		border: 1px solid rgba(212, 164, 55, 0.28);
+		box-shadow: 0 14px 28px rgba(33, 78, 56, 0.12);
+		color: #1d4b35;
+		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65);
+		animation: banner-glide 28s linear 2.4s infinite;
+		will-change: transform;
 	}
 
 	.banner-strip p {
 		margin: 0;
-		font-weight: 600;
+		font-weight: 700;
 		font-size: 0.95rem;
-		letter-spacing: 0.01em;
+		letter-spacing: 0.012em;
+		line-height: 1.45;
+		white-space: nowrap;
+	}
+
+	@keyframes banner-glide {
+		0%, 12% {
+			transform: translateX(calc(100% + 2rem));
+		}
+
+		100% {
+			transform: translateX(calc(-100% - 2rem));
+		}
 	}
 
 	/* ─── Stats ─── */
@@ -484,6 +581,15 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		isolation: isolate;
 	}
 
+	.gallery-item::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(8, 18, 13, 0.08) 0%, rgba(8, 18, 13, 0.16) 32%, rgba(8, 18, 13, 0.78) 100%);
+		z-index: 1;
+		pointer-events: none;
+	}
+
 	.gallery-wide {
 		grid-column: span 2;
 	}
@@ -494,15 +600,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		height: 280px;
 		object-fit: cover;
 		transition: transform 0.4s ease;
-	}
-
-	.gallery-item::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		background: linear-gradient(180deg, rgba(8, 12, 16, 0.06) 0%, rgba(8, 12, 16, 0.18) 38%, rgba(8, 12, 16, 0.78) 100%);
-		pointer-events: none;
-		z-index: 1;
 	}
 
 	.gallery-wide img {
@@ -519,32 +616,32 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		left: 0;
 		right: 0;
 		z-index: 2;
-		padding: 3.25rem 1.25rem 1.2rem;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 0.24));
+		padding: 2.75rem 1.25rem 1.25rem;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(7, 18, 13, 0.18) 28%, rgba(7, 18, 13, 0.82) 100%);
 		color: #fff;
 		opacity: 1;
-		transition: transform 0.3s ease;
+		transition: transform 0.3s ease, background 0.3s ease;
 	}
 
 	.gallery-item:hover figcaption {
-		transform: translateY(-4px);
+		transform: translateY(-0.15rem);
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(7, 18, 13, 0.22) 26%, rgba(7, 18, 13, 0.88) 100%);
 	}
 
 	.gallery-item figcaption strong {
 		display: block;
-		font-size: 1.05rem;
-		line-height: 1.2;
-		margin-bottom: 0.35rem;
-		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.48);
+		font-size: 1.02rem;
+		margin-bottom: 0.3rem;
+		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 	}
 
 	.gallery-item figcaption span {
 		display: block;
-		max-width: 30ch;
+		max-width: 38ch;
 		font-size: 0.88rem;
-		line-height: 1.45;
-		color: rgba(255, 255, 255, 0.92);
-		text-shadow: 0 2px 14px rgba(0, 0, 0, 0.42);
+		line-height: 1.5;
+		color: rgba(255, 255, 255, 0.94);
+		text-shadow: 0 2px 12px rgba(0, 0, 0, 0.42);
 	}
 
 	/* ─── Impact ─── */
@@ -616,7 +713,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 	.region-chips span {
 		padding: 0.4rem 0.85rem;
 		border-radius: var(--radius-sm);
-		background: rgba(26, 58, 42, 0.08);
+		background: rgba(43, 107, 75, 0.12);
 		font-size: 0.85rem;
 		font-weight: 500;
 		color: var(--primary);
@@ -643,7 +740,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 	.story-card {
 		border-radius: var(--radius-md);
-		overflow: hidden;
+		background: rgba(43, 107, 75, 0.12);
 		border: 1px solid var(--border);
 		background: var(--bg);
 		transition: all 0.25s ease;
@@ -819,5 +916,44 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 		.mission-image img {
 			min-height: 280px;
 		}
+
+		.banner-strip p {
+			font-size: 0.9rem;
+			white-space: normal;
+		}
+
+		.banner-frame {
+			grid-template-columns: 1fr;
+			border-radius: 1.35rem;
+			padding: 0.8rem;
+		}
+
+		.banner-label {
+			justify-self: start;
+			padding: 0.7rem 0.9rem;
+		}
+
+		.banner-marquee {
+			min-height: auto;
+			padding-inline: 0.75rem;
+		}
+
+		.banner-message {
+			padding: 0.8rem 1rem;
+			animation-duration: 32s;
+		}
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.banner-message {
+			position: relative;
+			left: auto;
+			animation: none;
+		}
+
+		.banner-strip p {
+			white-space: normal;
+		}
+	}
+
 </style>

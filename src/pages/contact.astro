@@ -2,333 +2,376 @@
 import Layout from '../layouts/Layout.astro';
 import SiteShell from '../components/SiteShell.astro';
 import { site } from '../data/site';
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const contactBackground = `${base}/photos/company-profile/contact-bg.jpg`;
 ---
 
-<Layout title={`Contact | ${site.name}`} description="Contact COPAK GENERAL TRADING for industrial products and service enquiries.">
+<Layout
+	title="Contact | Alternative 12"
+	description="Contact Alternative 12 for partnerships, funding, disability inclusion programs, and enquiries about our work across Africa."
+>
 	<SiteShell activePath="/contact">
-		<main class="section contact-page">
-			<section class="panel intro" style={`--contact-bg: url('${contactBackground}')`}>
-				<p class="eyebrow">Contact</p>
-				<h1>Let’s Discuss Your Industrial Requirements</h1>
-				<p>Reach our team for quotations, technical consultations, and partnership opportunities.</p>
+		<main>
+			<!-- Page Hero -->
+			<section class="page-hero">
+				<div class="hero-bg">
+					<img src={site.gallery[0].src} alt={site.gallery[0].alt} />
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content section">
+					<p class="hero-eyebrow">Contact Us</p>
+					<h1>Start a conversation about partnerships, giving, or collaboration.</h1>
+					<p class="hero-sub">Whether you are a donor, disability organization, school, or community partner, we would love to hear from you.</p>
+				</div>
 			</section>
 
-			<section class="grid two section-gap">
-				<article class="panel block">
-					<h2>Direct Contact</h2>
-					<p>Email: <a href={`mailto:${site.contacts.email}`}>{site.contacts.email}</a></p>
-					{site.contacts.phones.map((phone) => (
-						<p>Phone: <a href={`tel:${phone.replace(/\s+/g, '')}`}>{phone}</a></p>
-					))}
-					<p>Website: <a href={site.contacts.website} target="_blank" rel="noreferrer">{site.contacts.website}</a></p>
-				</article>
-				<article class="panel block">
-					<h2>Office Address</h2>
-					<p>{site.contacts.address}</p>
-				</article>
-			</section>
-
-			<section class="section-gap panel block">
-				<h2>Send Us a Message</h2>
-				<p class="form-note">Complete the form below and we will send your message to info@copak.com.</p>
-				<form id="contact-form" class="contact-form">
-					<div class="contact-form-grid">
-						<label>
-							<span>Full Name</span>
-							<input type="text" name="name" autocomplete="name" required />
-						</label>
-						<label>
-							<span>Email Address</span>
-							<input type="email" name="email" autocomplete="email" required />
-						</label>
-						<label>
-							<span>Phone Number</span>
-							<input type="tel" name="phone" autocomplete="tel" />
-						</label>
-						<label>
-							<span>Subject</span>
-							<input type="text" name="subject" required />
-						</label>
+			<!-- Donor CTA -->
+			<section class="donor-cta-section">
+				<div class="section">
+					<div class="donor-cta">
+						<div class="donor-cta-text">
+							<p class="eyebrow">Support the Mission</p>
+							<h2>Ready to help a child with a disability or from an underprivileged background?</h2>
+							<p>Your donation directly funds inclusive education, assistive devices, therapy, and family support across Africa.</p>
+						</div>
+						<a class="button button-primary" href={`${base}/donate`}>Go to Donation Page</a>
 					</div>
-					<label class="honeypot" aria-hidden="true">
-						<span>Leave this field empty</span>
-						<input type="text" name="company" tabindex="-1" autocomplete="off" />
-					</label>
-					<label>
-						<span>Message</span>
-						<textarea name="message" rows="6" required></textarea>
-					</label>
-					<button class="form-submit" type="submit">Send Email</button>
-					<p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-				</form>
+				</div>
 			</section>
 
-			<section class="section-gap panel block legal">
-				<h2>Business Registration</h2>
-				<div class="legal-grid">
-					<p><strong>RCCM:</strong> {site.contacts.rccm}</p>
-					<p><strong>ID NAT:</strong> {site.contacts.idNat}</p>
-					<p><strong>Tax Number:</strong> {site.contacts.taxNumber}</p>
-					<p><strong>ARSP:</strong> {site.contacts.arsp}</p>
+			<!-- Contact Cards -->
+			<section class="contact-section">
+				<div class="section">
+					<div class="contact-grid">
+						<article class="contact-card">
+							<h3>Partnerships</h3>
+							<p>For institutional partnerships, disability organizations, and strategic collaboration.</p>
+							<a href={`mailto:${site.contacts.partnerships}`}>{site.contacts.partnerships}</a>
+						</article>
+						<article class="contact-card">
+							<h3>General Enquiries</h3>
+							<p>For media, volunteer interest, community introductions, and general questions.</p>
+							<a href={`mailto:${site.contacts.general}`}>{site.contacts.general}</a>
+						</article>
+						<article class="contact-card">
+							<h3>Phone</h3>
+							<p>Regional coordination office line.</p>
+							<a href={`tel:${site.contacts.phone.replace(/\s+/g, '')}`}>{site.contacts.phone}</a>
+						</article>
+						<article class="contact-card">
+							<h3>Office</h3>
+							<p>{site.contacts.address}</p>
+							<span class="hours">Mon&ndash;Fri, 08:00&ndash;17:00 CAT</span>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Form -->
+			<section class="contact-form-section">
+				<div class="section">
+					<div class="contact-form-panel">
+						<div class="contact-form-heading">
+							<p class="eyebrow">Send a Message</p>
+							<h2>Email the team directly</h2>
+							<p>Complete this form to open your email app with the message prefilled to <strong>info@alternative12.org</strong>.</p>
+						</div>
+						<form action="mailto:info@alternative12.org" method="post" enctype="text/plain" class="contact-form">
+							<div class="form-grid">
+								<label>
+									<span>Full Name</span>
+									<input type="text" name="Name" required />
+								</label>
+								<label>
+									<span>Email Address</span>
+									<input type="email" name="Email" required />
+								</label>
+							</div>
+							<label>
+								<span>Subject</span>
+								<input type="text" name="Subject" required />
+							</label>
+							<label>
+								<span>Message</span>
+								<textarea name="Message" rows="6" required></textarea>
+							</label>
+							<button type="submit" class="button button-primary">Send Email</button>
+						</form>
+					</div>
+				</div>
+			</section>
+
+			<!-- Map / Photo Section -->
+			<section class="photo-section">
+				<div class="section">
+					<div class="photo-grid">
+						<figure class="photo-card">
+							<img src={site.gallery[1].src} alt={site.gallery[1].alt} loading="lazy" decoding="async" />
+							<figcaption>Inclusive classroom, East Africa</figcaption>
+						</figure>
+						<figure class="photo-card">
+							<img src={site.gallery[3].src} alt={site.gallery[3].alt} loading="lazy" decoding="async" />
+							<figcaption>Accessible play program, West Africa</figcaption>
+						</figure>
+					</div>
 				</div>
 			</section>
 		</main>
 	</SiteShell>
 </Layout>
 
-<script>
-	const contactForm = document.getElementById('contact-form');
-	const formStatus = document.getElementById('form-status');
-
-	if (contactForm instanceof HTMLFormElement && formStatus instanceof HTMLParagraphElement) {
-		contactForm.addEventListener('submit', (event) => {
-			event.preventDefault();
-			const formData = new FormData(contactForm);
-
-			const name = (formData.get('name') ?? '').toString().trim();
-			const email = (formData.get('email') ?? '').toString().trim();
-			const phone = (formData.get('phone') ?? '').toString().trim();
-			const subject = (formData.get('subject') ?? '').toString().trim();
-			const message = (formData.get('message') ?? '').toString().trim();
-			const company = (formData.get('company') ?? '').toString().trim();
-
-			const openMailClient = () => {
-				const body = [
-					`Name: ${name}`,
-					`Email: ${email}`,
-					`Phone: ${phone || 'N/A'}`,
-					'',
-					'Message:',
-					message,
-				].join('\n');
-				window.location.href = `mailto:info@copak.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-			};
-
-			if (!name || !email || !subject || !message) {
-				formStatus.textContent = 'Please complete all required fields.';
-				formStatus.dataset.state = 'error';
-				return;
-			}
-
-			formStatus.textContent = 'Sending...';
-			formStatus.dataset.state = 'pending';
-			const submitButton = contactForm.querySelector('button[type="submit"]');
-			if (submitButton instanceof HTMLButtonElement) {
-				submitButton.disabled = true;
-			}
-
-			fetch('/api/contact', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					name,
-					email,
-					phone,
-					subject,
-					message,
-					company,
-				}),
-			})
-				.then(async (response) => {
-					const payload = await response.json().catch(() => ({}));
-					if (response.status === 404 || response.status === 405) {
-						openMailClient();
-						formStatus.textContent = 'Opened your email client because server delivery is not available on this host.';
-						formStatus.dataset.state = 'pending';
-						return;
-					}
-					if (!response.ok) {
-						throw new Error(payload?.error || 'Unable to send message right now.');
-					}
-					formStatus.textContent = 'Message sent successfully. We will contact you soon.';
-					formStatus.dataset.state = 'success';
-					contactForm.reset();
-				})
-				.catch((error) => {
-					openMailClient();
-					formStatus.textContent =
-						error instanceof Error
-							? `${error.message} Opened your email client instead.`
-							: 'Opened your email client instead.';
-					formStatus.dataset.state = 'pending';
-				})
-				.finally(() => {
-					if (submitButton instanceof HTMLButtonElement) {
-						submitButton.disabled = false;
-					}
-				});
-		});
-	}
-</script>
-
 <style>
-	.contact-page {
-		padding: 2rem 0;
-	}
-
-	.intro,
-	.block {
-		padding: 1.2rem;
-	}
-
-	.intro {
+	.page-hero {
 		position: relative;
+		min-height: 45vh;
+		display: flex;
+		align-items: center;
 		overflow: hidden;
 	}
 
-	.intro::before {
-		content: '';
+	.hero-bg {
 		position: absolute;
 		inset: 0;
-		background:
-			linear-gradient(100deg, rgba(15, 17, 19, 0.9) 0%, rgba(15, 17, 19, 0.74) 48%, rgba(15, 17, 19, 0.88) 100%),
-			var(--contact-bg) center/cover no-repeat;
-		opacity: 0.93;
-		z-index: 0;
-		animation: introPan 18s ease-in-out infinite alternate;
-		transform-origin: center;
 	}
 
-	.intro > * {
+	.hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(31, 74, 53, 0.9) 0%, rgba(31, 74, 53, 0.5) 100%);
+	}
+
+	.hero-content {
 		position: relative;
-		z-index: 1;
+		z-index: 2;
+		padding: 5rem 0;
+		max-width: 640px;
+		color: #fff;
 	}
 
-	@keyframes introPan {
-		0% {
-			transform: scale(1.05) translate3d(0, 0, 0);
-		}
-		100% {
-			transform: scale(1.11) translate3d(-2%, -1%, 0);
-		}
+	.hero-eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 0 0 1rem;
 	}
 
-	.intro h1 {
-		font-size: clamp(1.8rem, 3.8vw, 2.7rem);
-		margin: 0.4rem 0 0.8rem;
+	.hero-content h1 {
+		font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+		margin-bottom: 1rem;
+		color: #fff;
 	}
 
-	.intro p,
-	.block p {
-		color: var(--muted);
+	.hero-sub {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0;
 	}
 
-	.block a {
-		color: var(--text);
+	.donor-cta-section {
+		padding: 4rem 0;
 	}
 
-	.form-note {
-		margin: 0.5rem 0 0.9rem;
+	.donor-cta {
+		display: grid;
+		grid-template-columns: 1.3fr 0.7fr;
+		gap: 2rem;
+		align-items: center;
+		padding: 2.5rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+	}
+
+	.donor-cta h2 {
+		font-size: 1.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.donor-cta p {
+		color: var(--text-light);
+		line-height: 1.65;
+		margin: 0;
+	}
+
+	.donor-cta .button {
+		justify-self: end;
+		white-space: nowrap;
+	}
+
+	.contact-section {
+		padding: 0 0 5rem;
+	}
+
+	.contact-form-section {
+		padding: 0 0 5rem;
+	}
+
+	.contact-form-panel {
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+	}
+
+	.contact-form-heading h2 {
+		font-size: clamp(1.4rem, 3vw, 2rem);
+		margin-bottom: 0.6rem;
+	}
+
+	.contact-form-heading p {
+		margin: 0 0 1.5rem;
+		color: var(--text-light);
 	}
 
 	.contact-form {
 		display: grid;
-		gap: 0.85rem;
+		gap: 1rem;
 	}
 
-	.contact-form-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 0.75rem;
-	}
-
-	.contact-form label {
-		display: grid;
-		gap: 0.35rem;
-	}
-
-	.honeypot {
-		position: absolute;
-		left: -9999px;
-		top: auto;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-	}
-
-	.contact-form span {
-		font-size: 0.9rem;
-		color: var(--muted);
-	}
-
-	.contact-form input,
-	.contact-form textarea {
-		width: 100%;
-		background: #12161a;
-		border: 1px solid var(--border);
-		color: var(--text);
-		border-radius: 0.55rem;
-		padding: 0.72rem 0.8rem;
-		font: inherit;
-	}
-
-	.contact-form input:focus,
-	.contact-form textarea:focus {
-		outline: 2px solid rgba(226, 90, 0, 0.35);
-		outline-offset: 1px;
-		border-color: var(--accent);
-	}
-
-	.form-submit {
-		width: fit-content;
-		border: 1px solid transparent;
-		background: var(--accent);
-		color: #fff;
-		padding: 0.7rem 1.15rem;
-		border-radius: 0.55rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: filter 0.2s ease;
-	}
-
-	.form-submit:hover {
-		filter: brightness(1.06);
-	}
-
-	.form-submit:disabled {
-		opacity: 0.7;
-		cursor: wait;
-	}
-
-	.form-status {
-		margin: 0;
-		font-size: 0.92rem;
-		color: var(--muted);
-	}
-
-	.form-status[data-state='success'] {
-		color: #66d99c;
-	}
-
-	.form-status[data-state='error'] {
-		color: #ff8b8b;
-	}
-
-	.grid.two {
+	.form-grid {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
 	}
 
-	.section-gap {
-		padding-top: 1rem;
-	}
-
-	.legal-grid {
+	.contact-form label {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 0.55rem;
+		gap: 0.45rem;
 	}
 
-	@media (max-width: 980px) {
-		.grid.two,
-		.contact-form-grid,
-		.legal-grid {
+	.contact-form span {
+		font-size: 0.9rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.contact-form input,
+	.contact-form textarea {
+		width: 100%;
+		border: 1px solid var(--border);
+		border-radius: var(--radius-sm);
+		padding: 0.75rem 0.9rem;
+		font: inherit;
+		color: var(--text);
+		background: #fff;
+	}
+
+	.contact-form textarea {
+		resize: vertical;
+		min-height: 140px;
+	}
+
+	.contact-form input:focus,
+	.contact-form textarea:focus {
+		outline: 2px solid rgba(79, 166, 110, 0.25);
+		outline-offset: 1px;
+		border-color: var(--primary-light);
+	}
+
+	.contact-form .button {
+		justify-self: start;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.5rem;
+	}
+
+	.contact-card {
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+
+	.contact-card h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.contact-card p {
+		color: var(--text-light);
+		line-height: 1.65;
+		margin: 0 0 0.75rem;
+	}
+
+	.contact-card a {
+		display: inline-block;
+		font-weight: 600;
+		color: var(--primary);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.contact-card a:hover {
+		color: var(--primary-light);
+	}
+
+	.hours {
+		font-size: 0.9rem;
+		color: var(--text-light);
+	}
+
+	.photo-section {
+		padding: 0 0 5rem;
+	}
+
+	.photo-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.5rem;
+	}
+
+	.photo-card {
+		margin: 0;
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		position: relative;
+	}
+
+	.photo-card img {
+		display: block;
+		width: 100%;
+		height: 280px;
+		object-fit: cover;
+	}
+
+	.photo-card figcaption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 2rem 1.25rem 1.25rem;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+		color: #fff;
+		font-size: 0.9rem;
+		font-weight: 500;
+	}
+
+	@media (max-width: 960px) {
+		.donor-cta {
+			grid-template-columns: 1fr;
+		}
+
+		.donor-cta .button {
+			justify-self: start;
+		}
+
+		.contact-grid,
+		.photo-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.form-grid {
 			grid-template-columns: 1fr;
 		}
 	}

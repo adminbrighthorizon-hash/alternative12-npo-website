@@ -2,48 +2,193 @@
 import Layout from '../layouts/Layout.astro';
 import SiteShell from '../components/SiteShell.astro';
 import { site } from '../data/site';
-
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title={`Services Overview | ${site.name}`} description="Legacy route maintained for services overview.">
-	<SiteShell activePath="/services">
-		<main class="section page">
-			<section class="panel card">
-				<p class="eyebrow">Route Compatibility</p>
-				<h1>Products & Services</h1>
-				<p>
-					This route is maintained for compatibility. View the complete and updated portfolio on our dedicated
-					services page.
-				</p>
-				<a class="btn" href={`${base}/services`}>Open Full Services Portfolio</a>
+<Layout
+	title="Our Programs | Alternative 12"
+	description="Explore Alternative 12's integrated programs in education, health, family support, and child protection across African communities."
+>
+	<SiteShell activePath="/programs">
+		<main>
+			<!-- Page Hero -->
+			<section class="page-hero">
+				<div class="hero-bg">
+					<img src={site.programs[0].image} alt="Education program" />
+					<div class="hero-overlay"></div>
+				</div>
+				<div class="hero-content section">
+					<p class="hero-eyebrow">Our Programs</p>
+					<h1>Integrated solutions for the challenges families face.</h1>
+					<p class="hero-sub">We address education, health, family support, and child protection through locally led programs designed with — not for — communities.</p>
+				</div>
+			</section>
+
+			<!-- Programs List -->
+			<section class="programs-section">
+				<div class="section">
+					{site.programs.map((program, i) => (
+						<article class:list={['program-row', i % 2 !== 0 && 'reversed']}>
+							<div class="program-image">
+								<img src={program.image} alt={program.title} loading="lazy" decoding="async" />
+							</div>
+							<div class="program-content">
+								<p class="eyebrow">Program {program.id}</p>
+								<h2>{program.title}</h2>
+								<p class="program-desc">{program.description}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<!-- CTA -->
+			<section class="cta-section">
+				<div class="section">
+					<div class="cta-panel">
+						<h2>Support a program today.</h2>
+						<p>Your contribution helps deliver measurable outcomes for children and families across Africa.</p>
+						<a href={`${base}/donate`} class="button button-primary">Donate Now</a>
+					</div>
+				</div>
 			</section>
 		</main>
 	</SiteShell>
 </Layout>
 
 <style>
-	.page {
-		padding: 2rem 0;
+	.page-hero {
+		position: relative;
+		min-height: 50vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
 	}
 
-	.card {
-		padding: 1.2rem;
+	.hero-bg {
+		position: absolute;
+		inset: 0;
 	}
 
-	.card p {
-		color: var(--muted);
+	.hero-bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
-	.btn {
-		display: inline-block;
-		text-decoration: none;
-		padding: 0.58rem 0.95rem;
-		border-radius: 0.65rem;
-		font-size: 0.88rem;
-		font-weight: 600;
-		background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+	.hero-overlay {
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(to right, rgba(31, 74, 53, 0.9) 0%, rgba(31, 74, 53, 0.5) 100%);
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 2;
+		padding: 5rem 0;
+		max-width: 640px;
 		color: #fff;
-		margin-top: 0.7rem;
+	}
+
+	.hero-eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.15em;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: rgba(255, 255, 255, 0.75);
+		margin: 0 0 1rem;
+	}
+
+	.hero-content h1 {
+		font-size: clamp(2rem, 4vw, 3.2rem);
+		margin-bottom: 1rem;
+		color: #fff;
+	}
+
+	.hero-sub {
+		font-size: 1.1rem;
+		line-height: 1.7;
+		color: rgba(255, 255, 255, 0.85);
+		margin: 0;
+	}
+
+	.programs-section {
+		padding: 5rem 0;
+	}
+
+	.program-row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+		margin-bottom: 5rem;
+	}
+
+	.program-row:last-child {
+		margin-bottom: 0;
+	}
+
+	.program-row.reversed .program-image {
+		order: 2;
+	}
+
+	.program-image {
+		border-radius: var(--radius-lg);
+		overflow: hidden;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.program-image img {
+		display: block;
+		width: 100%;
+		height: 360px;
+		object-fit: cover;
+	}
+
+	.program-content h2 {
+		font-size: clamp(1.5rem, 2.5vw, 2rem);
+		margin-bottom: 1rem;
+	}
+
+	.program-desc {
+		color: var(--text-light);
+		line-height: 1.75;
+		margin: 0;
+	}
+
+	.cta-section {
+		padding: 0 0 5rem;
+	}
+
+	.cta-panel {
+		background: var(--bg-dark);
+		color: var(--text-inverse);
+		padding: 3.5rem;
+		border-radius: var(--radius-lg);
+		text-align: center;
+	}
+
+	.cta-panel h2 {
+		color: #fff;
+		font-size: clamp(1.6rem, 3vw, 2.2rem);
+		margin-bottom: 0.75rem;
+	}
+
+	.cta-panel p {
+		color: rgba(255, 255, 255, 0.75);
+		max-width: 480px;
+		margin: 0 auto 1.5rem;
+		line-height: 1.65;
+	}
+
+	@media (max-width: 960px) {
+		.program-row {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.program-row.reversed .program-image {
+			order: 0;
+		}
 	}
 </style>
